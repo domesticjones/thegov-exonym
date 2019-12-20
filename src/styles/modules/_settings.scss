@@ -1,0 +1,83 @@
+/**
+  Module Globals
+  ---------------------------------------------------------------------- */
+.module-wrapper {
+  @include clearfix();
+}
+
+.module {
+  @include grid(center, center);
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+  @include clearfix();
+}
+
+.module-inner {
+  max-width: 100%;
+  position: relative;
+  background-color: $red;
+
+  & > *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+/**
+  Module Settings
+  ---------------------------------------------------------------------- */
+$modulePadding: (
+  'none': 0,
+  'sm':   3vw,
+  'md':   6vw,
+  'lg':   12vw
+);
+
+// Multiplier for calculating left/right padding dynamically
+$modulePaddingHorizontalDoubler: 2;
+
+// Define how much padding should be applied on small devices
+$modulePaddingResponsive: (
+  'device': 'tablet',
+  'x':    2rem,
+  'y':    2rem,
+);
+
+$moduleWidth: (
+  'full':   100%,
+  'wide':   map-get($breakpoints, 'desktop'),
+  'medium': map-get($breakpoints, 'tablet-wide'),
+  'narrow': map-get($breakpoints, 'tablet')
+);
+
+/**
+  Module Functions
+  ---------------------------------------------------------------------- */
+// Padding
+@each $size, $pad in $modulePadding {
+  .module-pad-t-#{$size} { padding-top: $pad; }
+  .module-pad-b-#{$size} { padding-bottom: $pad; }
+  .module-pad-l-#{$size} { padding-left: #{$pad * $modulePaddingHorizontalDoubler}; }
+  .module-pad-r-#{$size} { padding-right: #{$pad * $modulePaddingHorizontalDoubler}; }
+  @if $size != 'none' {
+    @include responsive(map-get($modulePaddingResponsive, 'device')) {
+      .module-pad-t-#{$size} { padding-top: map-get($modulePaddingResponsive, 'y'); }
+      .module-pad-b-#{$size} { padding-bottom: map-get($modulePaddingResponsive, 'y'); }
+      .module-pad-l-#{$size} { padding-left: map-get($modulePaddingResponsive, 'x'); }
+      .module-pad-r-#{$size} { padding-right: map-get($modulePaddingResponsive, 'x'); }
+    }
+  }
+}
+
+// Width
+@each $size, $width in $moduleWidth {
+  .module-width-#{$size} { width: $width; }
+}
+
+// Align
+.module-align {
+  &-left { float: left; margin: 0 auto 0 0; }
+  &-right { float: right; margin: 0 0 0 auto; }
+  &-center { float: none; margin: 0 auto; }
+}

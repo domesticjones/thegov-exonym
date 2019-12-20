@@ -1,0 +1,35 @@
+/**
+  Configuration Settings, Functions & Mixins
+  ---------------------------------------------------------------------- */
+@import 'styles/functions/functions';
+@import 'styles/functions/grid';
+@import 'styles/functions/effects';
+@import 'styles/functions/hamburger';
+@import 'styles/functions/reset';
+
+/**
+  jQuery Plugins
+  ---------------------------------------------------------------------- */
+@import '~slick-carousel/slick/slick';
+
+/**
+  Global Configurations
+  ---------------------------------------------------------------------- */
+@import 'styles/config/colors';
+@import 'styles/config/typography';
+@import 'styles/config/animation';
+@import 'styles/config/forms';
+//@import 'styles/config/tables';
+@import 'styles/config/xxx';
+
+/**
+  Elements
+  ---------------------------------------------------------------------- */
+@import 'styles/elements/header';
+@import 'styles/elements/footer';
+@import 'styles/elements/login';
+
+/**
+  Modules
+  ---------------------------------------------------------------------- */
+@import 'styles/modules/settings';

@@ -1,0 +1,41 @@
+/**
+  Body Globals
+  ---------------------------------------------------------------------- */
+html,
+body {
+  max-width: 100%;
+  font-size: $font-size;
+}
+
+body {
+  color: $black;
+  line-height: 1;
+  font-family: $font-default;
+  font-weight: $font-normal;
+  font-smoothing: antialiased;
+}
+
+/**
+  Global Link Defaults
+  ---------------------------------------------------------------------- */
+a {
+  text-decoration: none;
+}
+
+@include linkColor($blue, static);
+@include linkColor($red, hover);
+
+/**
+  Wordpress Image Alignment Spacing
+  ---------------------------------------------------------------------- */
+.aligncenter {
+  margin: 1em auto;
+}
+
+.alignleft {
+  margin: 1em 1em 1em 0;
+}
+
+.alignright {
+  margin: 1em 0 1em 1em;
+}
