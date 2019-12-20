@@ -1,7 +1,7 @@
 <?php
 	/* TEMPLATE NAME: Home */
 	get_header();
-    echo '<article id="">';
+    echo '<article id="wrap-home">';
   		if(have_posts()) { while(have_posts()) { the_post();
 
         // Landing Section

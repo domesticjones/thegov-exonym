@@ -20,7 +20,7 @@ function custom_login_logo() { ?>
   <style type="text/css">
     #login h1 a,
     .login h1 a {
-      background-image: url(<?php echo ex_logo('alternate', 'dark'); ?>);
+      background-image: url(<?php echo ex_logo('primary', 'dark'); ?>);
     }
   </style>
 <?php }
@@ -39,3 +39,10 @@ $roleObject = get_role( 'editor' );
 if (!$roleObject->has_cap('edit_theme_options')) {
   $roleObject->add_cap('edit_theme_options');
 }
+
+// Google Maps API
+function ex_googleMaps( $api ){
+    $key = get_field('maps_api', 'options');
+    acf_update_setting('google_api_key', $key);
+}
+add_filter('acf/init', 'ex_googleMaps');

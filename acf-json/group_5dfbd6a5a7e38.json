@@ -149,7 +149,7 @@
                     "key": "field_5dfbd9b6846d1",
                     "label": "Cost",
                     "name": "cost",
-                    "type": "number",
+                    "type": "group",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -158,13 +158,51 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "$",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5dfd52cbccf15",
+                            "label": "Advance",
+                            "name": "advance",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "$",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_5dfd52c0ccf14",
+                            "label": "Doors",
+                            "name": "doors",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        }
+                    ]
                 },
                 {
                     "key": "field_5dfbda09846d2",
@@ -197,7 +235,7 @@
                 "id": ""
             },
             "center_lat": "43.6150",
-            "center_lng": "116.2023",
+            "center_lng": "-116.2023",
             "zoom": "",
             "height": ""
         },
@@ -433,7 +471,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "performances"
+                "value": "performance"
             }
         ]
     ],
@@ -445,5 +483,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576808833
+    "modified": 1576884698
 }
