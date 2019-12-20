@@ -10,7 +10,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.8.4",
+        "version": "5.8.7",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -24,9 +24,10 @@
     }
   ],
   "require": {
+    "wpackagist-plugin/admin-menu-editor": "*",
     "wpackagist-plugin/disable-gutenberg": "*",
     "wpackagist-plugin/favicon-by-realfavicongenerator": "*",
-    "wpackagist-plugin/contact-form-7": "*",
+    "wpackagist-plugin/woocommerce": "*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }
