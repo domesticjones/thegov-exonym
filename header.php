@@ -8,10 +8,12 @@
 	</head>
 	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 		<div id="container">
-      <header id="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
-        <a href="<?php echo get_home_url(); ?>">
-					<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" class="logo-header" />
+			<header id="brand">
+				<a href="<?php echo get_home_url(); ?>">
+					<img src="<?php echo ex_logo('primary', 'light'); ?>" alt="Logo for <?php echo ex_brand(); ?>" class="logo-header" />
 				</a>
+			</header>
+      <header id="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
         <nav class="nav-header" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
           <?php wp_nav_menu(array(
             'container' => false,								// remove nav container
@@ -28,9 +30,4 @@
           )); ?>
         </nav>
         <?php ex_social(); ?>
-				<a href="#" id="responsive-nav-toggle">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-				</a>
       </header>

@@ -1,48 +1,24 @@
 /**
   Global Website Header
   ---------------------------------------------------------------------- */
-.header-top {
-  padding: 1rem 0;
-  z-index: 9999;
-  width: 100%;
-  background-color: $white;
+#brand {
+  position: fixed;
+  z-index: 999;
+  width: 25vw;
+  left: 50%;
+  top: 3vw;
+  transform: translateX(-50%);
 
-  .wrap {
-    @include grid(space-between, center);
-  }
-
-  .nav-social {
-    ul {
-      @include listStripped();
-      @include grid();
-
-      li {
-        margin: 0 0.5em;
-      }
-
-      a,
-      img {
-        display: block;
-        height: 2em;
-      }
-
-      span {
-        display: none;
-      }
-    }
-  }
-}
-
-.logo-header {
-  display: block;
-  height: 2.5rem;
-}
-
-#responsive-nav-toggle {
-  @include hamburgerMenu(12, $blue, 0.6);
-  display: none;
-
-  @include responsive('tablet-wide') {
+  a, img {
     display: block;
   }
+}
+
+#header {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $white;
 }

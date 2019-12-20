@@ -13,17 +13,6 @@
   @include clearfix();
 }
 
-.module-inner {
-  max-width: 100%;
-  position: relative;
-  background-color: $red;
-
-  & > *:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-}
-
 /**
   Module Settings
   ---------------------------------------------------------------------- */

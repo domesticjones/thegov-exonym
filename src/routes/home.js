@@ -1,7 +1,13 @@
+import $ from 'jquery';
+window.jQuery = $;
+require('jquery-scrollify');
+
 export default {
   init() {
+    $.scrollify({
+      section: '.module',
+    });
   },
   finalize() {
-    // JavaScript to be fired on the home page, after the init JS
   },
 };
