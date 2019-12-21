@@ -91,15 +91,21 @@ add_action('pre_get_posts', 'cpt_performancesOrdering');
 function cpt_performancesColumnsPage($columns) {
     $columns = array(
         'cb'        => '<input type="checkbox" />',
+        'poster'    => 'Poster',
         'title'     => 'Performance',
         'location'  => 'Location',
+        'acts'      => 'Other Acts',
     );
     return $columns;
 }
 
 function cpt_performancesColumnsData($column) {
     global $post;
-    if ($column == 'location') {
+    if ($column == 'poster') {
+        echo '<a href="' . get_edit_post_link($post->ID) . '">';
+            the_post_thumbnail('small');
+        echo '</a>';
+    } elseif ($column == 'location') {
         $place = get_field('location', $post->ID);
         if($place) {
             echo '<strong>' . performanceLocation($place)->name . '</strong><br />';
@@ -107,6 +113,17 @@ function cpt_performancesColumnsData($column) {
             echo performanceLocation($place, 'city');
         } else {
             echo '<em>No location has been set for this performance.</em>';
+        }
+    } elseif ($column == 'acts') {
+        $acts = get_field('acts', $post->ID);
+        if($acts) {
+            echo '<ul >';
+                foreach($acts as $act) {
+                    echo '<li>' . $act['name'] . '</li>';
+                }
+            echo '</ul>';
+        } else {
+            echo '<em>Just ' . ex_brand() . '!</em>';
         }
     }
 }
