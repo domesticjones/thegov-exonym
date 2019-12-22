@@ -28,9 +28,11 @@
 @import 'styles/elements/header';
 @import 'styles/elements/footer';
 @import 'styles/elements/login';
+@import 'styles/elements/pages';
 
 /**
   Modules
   ---------------------------------------------------------------------- */
 @import 'styles/modules/settings';
 @import 'styles/modules/landing';
+@import 'styles/modules/perf-single';

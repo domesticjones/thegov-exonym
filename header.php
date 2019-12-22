@@ -31,3 +31,4 @@
         </nav>
         <?php ex_social(); ?>
       </header>
+      <main id="content">

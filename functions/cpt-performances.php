@@ -78,7 +78,7 @@ add_action('save_post', 'cpt_performancesTitles');
 
 // CPT: Performances - Order by Date
 function cpt_performancesOrdering($query) {
-	if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'performance' ) {
+	if(isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'performance') {
 		$query->set('orderby', 'meta_value');
 		$query->set('meta_key', 'date_start');
 		$query->set('order', 'DESC');
@@ -103,7 +103,7 @@ function cpt_performancesColumnsData($column) {
     global $post;
     if ($column == 'poster') {
         echo '<a href="' . get_edit_post_link($post->ID) . '">';
-            the_post_thumbnail('small');
+            the_post_thumbnail('thumbnail');
         echo '</a>';
     } elseif ($column == 'location') {
         $place = get_field('location', $post->ID);
@@ -151,7 +151,7 @@ function performanceLocation($place, $type = null) {
                 $placeStreet = $address_component->short_name;
                 continue;
             } elseif(in_array('neighborhood', $address_component->types)) {
-                $placeHood = $address_component->long_name . ' - ';
+                $placeHood = '<span>' . $address_component->long_name . '<i> - </i></span>';
                 continue;
             } elseif(in_array('locality', $address_component->types)) {
                 $placeCity = $address_component->long_name;

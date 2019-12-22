@@ -2,7 +2,7 @@
 if (!defined('WPINC')) { die; }
 
   // Module Content Wrapper
-  function ex_wrap($pos, $name = null, $class = null) {
+  function ex_wrap($pos, $name = null) {
     $output = '';
     if($pos == 'start') {
       $output .= '<section id="' . $name . '" class="module module-' . $name . '">';
