@@ -10,6 +10,231 @@
   @include filter-blur(1rem);
 }
 
+.page-content.perf {
+  padding: 6vw 3vw;
+}
+
+.perf-breadcrumb {
+  padding: 0.5em 0;
+  margin: 1em 0;
+  text-align: center;
+
+  h3 {
+    font-size: 1.15em;
+    margin: 0.25em 0;
+    opacity: 0.5;
+  }
+
+  a {
+    @include fontItalic();
+    font-weight: $font-light;
+    opacity: 0.5;
+    @include transition();
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.bottom {
+    border-top: 1px solid $grey-dark;
+    padding-top: 1.5em;
+    margin-top: 1.5em;
+  }
+}
+
+.module-perf-header {
+  @include grid(center, center, row, wrap);
+  text-align: center;
+  border-top: 1px solid $grey-dark;
+  padding-top: 1rem;
+  font-size: 1.25em;
+
+  h1 {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    text-align: left;
+    line-height: 1;
+    padding-left: 0.5em;
+    margin: 0;
+    padding: 0;
+    font-weight: $font-light;
+
+    opacity: 0.75;
+
+    strong {
+      display: block;
+      opacity: 0.5;
+    }
+  }
+
+  time,
+  address {
+    width: 100%;
+    font-size: 0.7em;
+    line-height: 1.25;
+    opacity: 0.5;
+    font-weight: $font-light;
+  }
+
+  time {
+    margin-top: 1em;
+
+    strong {
+      opacity: 0.5;
+    }
+  }
+}
+
+.module-perf-data {
+  margin-top: 1em;
+
+  a, p {
+    @include grid(flex-start, center);
+    padding: 1em;
+    margin: 0;
+    border: 0 !important;
+    @include transition();
+    @include pseudo('before') {
+      width: 2em;
+      height: 2em;
+      border-radius: 100%;
+      margin-right: 0.5em;
+      background-size: auto 66.6%;
+      background-position: center center;
+      background-color: $white;
+      background-repeat: no-repeat;
+    }
+
+    strong {
+      display: none;
+    }
+
+    &.private {
+      font-weight: $font-light;
+      display: block;
+      text-align: center;
+
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        transform: scale(1);
+      }
+
+      strong {
+        display: inline;
+      }
+    }
+
+    &.ages::before { @include icon('group'); }
+    &.cost::before { @include icon('money'); }
+    &.tickets::before { @include icon('tickets'); }
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.module-perf-desc {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+
+  .label {
+    padding: 0;
+    line-height: 1.5;
+    font-size: 0.8em;
+    font-weight: $font-light;
+    @include fontItalic();
+    opacity: 0.5;
+  }
+
+  .acts {
+    @include navMenu('horizontal');
+    width: 100%;
+    font-size: 1.15em;
+
+    ul li {
+      margin: 0.5em;
+    }
+
+    a, span {
+      display: block;
+      padding: 0.5em 1em;
+      border: 1px solid $grey-dark !important;
+      border-radius: 1rem;
+    }
+
+    a:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  .desc {
+    display: inline-block;
+    padding: 1rem;
+    font-weight: $font-light;
+  }
+
+  .links {
+    ul {
+      @include listStripped();
+      @include grid(center, center, row, wrap);
+
+      li {
+        margin: 1em;
+      }
+    }
+
+    a {
+      display: block;
+      background-color: $white;
+      color: $black;
+      padding: 0.5em 1em;
+      border-radius: 0.5rem;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+.module-perf-media {
+  ul {
+    @include listStripped();
+    @include grid(center, center, row, wrap);
+
+    li {
+      margin: 0.5em;
+      @include transition();
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .video {
+    width: calc(50% - 1em);
+  }
+
+  .photo {
+    width: calc(25% - 1em);
+  }
+
+  a {
+    border: none;
+  }
+}
+
 .page-sidebar.perf {
   @include grid(center, center);
 
@@ -28,7 +253,7 @@
     position: relative;
     z-index: 2;
     max-width: 80%;
-    max-height: 80vh;
+    max-height: 70vh;
     width: auto;
     height: auto;
     box-shadow: 0.5rem 0.5rem 1rem $black;

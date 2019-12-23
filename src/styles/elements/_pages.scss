@@ -6,6 +6,14 @@
 .page-content {
   position: relative;
   width: 50%;
+
+  @include pseudo(after, block, fixed) {
+    width: 100%;
+    height: 6vw;
+    top: 0;
+    left: 0;
+    @include gradient(linear, to bottom, '#{$black}, transparent');
+  }
 }
 
 .page-sidebar {

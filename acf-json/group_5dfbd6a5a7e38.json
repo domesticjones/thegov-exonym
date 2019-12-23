@@ -177,30 +177,9 @@
                     "layout": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5dfd52cbccf15",
+                            "key": "field_5dffefc5b3300",
                             "label": "Advance",
                             "name": "advance",
-                            "type": "number",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "$",
-                            "append": "",
-                            "min": "",
-                            "max": "",
-                            "step": ""
-                        },
-                        {
-                            "key": "field_5dfd52c0ccf14",
-                            "label": "Doors",
-                            "name": "doors",
                             "type": "number",
                             "instructions": "",
                             "required": 0,
@@ -217,6 +196,25 @@
                             "min": "",
                             "max": "",
                             "step": ""
+                        },
+                        {
+                            "key": "field_5dfff003b3301",
+                            "label": "Doors",
+                            "name": "doors",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 },
@@ -259,7 +257,7 @@
                 "id": ""
             },
             "center_lat": "43.6150",
-            "center_lng": "-116.2023",
+            "center_lng": "116.2023",
             "zoom": "",
             "height": ""
         },
@@ -358,7 +356,7 @@
             "key": "field_5dfbdb0427253",
             "label": "Description",
             "name": "description",
-            "type": "wysiwyg",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -368,10 +366,10 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
         },
         {
             "key": "field_5dfbdc60e2ca9",
@@ -507,5 +505,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576886421
+    "modified": 1577055417
 }

@@ -65,7 +65,7 @@ function cpt_performancesTitles($post_id) {
         if($dateRaw) {
             $dateFormat = DateTime::createFromFormat('Y-m-d H:i:s', $dateRaw);
             $slug = $dateFormat->format('Y-m-d');
-            $title = $dateFormat->format('D, M jS, Y');
+            $title = $dateFormat->format('Y.m.d');
         }
         if($name) {
             $title = $name;

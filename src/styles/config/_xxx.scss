@@ -21,10 +21,16 @@ body {
   ---------------------------------------------------------------------- */
 a {
   text-decoration: none;
+  border-bottom: 1px dashed transparentize($white, 0.666);
+  border-collapse: collapse;
+  @include transition();
+
+  &:hover {
+    border-color: $white;
+  }
 }
 
-@include linkColor($blue, static);
-@include linkColor($red, hover);
+@include linkColor($white);
 
 /**
   Wordpress Image Alignment Spacing

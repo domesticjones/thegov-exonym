@@ -10,5 +10,7 @@
         // Merch Section
   		}}
     echo '</article>';
+    
+    // Include the comment bubble stuff here that pops up only on the home page.
 	get_footer();
 ?>
