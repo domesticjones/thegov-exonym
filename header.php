@@ -29,6 +29,6 @@
             'fallback_cb' => ''									// fallback function (if there is one)
           )); ?>
         </nav>
-        <?php ex_social(); ?>
+        <?php echo ex_social(); ?>
       </header>
       <main id="content">

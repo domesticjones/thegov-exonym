@@ -1,5 +1,5 @@
 // Mixin for creating basic transitions
-@mixin transition($transition: all 350ms ease) {
+@mixin transition($transition: all 166ms ease) {
   transition: $transition;
 }
 

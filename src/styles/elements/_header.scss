@@ -23,11 +23,80 @@
 }
 
 #header {
+  @include grid(space-between, center, row-reverse);
   position: fixed;
   z-index: 999;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: $white;
+  box-shadow: 0 0 1rem $white;
+  padding: 1rem 2rem;
   @include linkColor($black);
+
+  .nav-header {
+    @include navMenu(horizontal);
+
+    a {
+      display: block;
+      padding: 0.5em 1em;
+      text-transform: uppercase;
+
+      &:hover {
+        transform: translateY(-0.5em);
+      }
+    }
+  }
+
+  .nav-social {
+    @include navMenu(horizontal);
+
+    ul {
+      display: block;
+    }
+
+    li {
+      position: relative;
+    }
+
+    a {
+      display: block;
+      padding: 0.5em;
+
+      &:hover {
+        .social-info {
+          transform: scaleY(1);
+        }
+
+        img {
+          transform: translateY(-0.25em);
+        }
+      }
+    }
+
+    img {
+      display: block;
+      height: 1.25rem;
+      @include transition();
+    }
+  }
+
+  .social-info {
+    font-size: 0.75em;
+    position: absolute;
+    bottom: 100%;
+    left: -1em;
+    background-color: $white;
+    padding: 1em 2em;
+    white-space: nowrap;
+    border-radius: 1rem 1rem 0 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    @include transition();
+
+    strong {
+      display: block;
+      font-size: 1rem;
+    }
+  }
 }
