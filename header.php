@@ -31,4 +31,5 @@
         </nav>
         <?php echo ex_social(); ?>
       </header>
+			<?php get_template_part('modules/navigation'); ?>
       <main id="content">
