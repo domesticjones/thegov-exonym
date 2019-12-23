@@ -10,10 +10,6 @@
   @include filter-blur(1rem);
 }
 
-.page-content.perf {
-  padding: 6vw 3vw;
-}
-
 .perf-breadcrumb {
   padding: 0.5em 0;
   margin: 1em 0;
@@ -41,6 +37,12 @@
     padding-top: 1.5em;
     margin-top: 1.5em;
   }
+
+  @include responsive(tablet) {
+    &.top {
+      display: none;
+    }
+  }
 }
 
 .module-perf-header {
@@ -49,6 +51,11 @@
   border-top: 1px solid $grey-dark;
   padding-top: 1rem;
   font-size: 1.25em;
+
+  @include responsive(tablet) {
+    border-top: none;
+    padding-top: 0;
+  }
 
   h1 {
     line-height: 1;
@@ -142,19 +149,23 @@
   }
 }
 
-.module-perf-desc {
-  display: block;
-  text-align: center;
-  margin-top: 1rem;
-
+.page-content.perf {
   .label {
+    width: 100%;
     padding: 0;
     line-height: 1.5;
     font-size: 0.8em;
     font-weight: $font-light;
     @include fontItalic();
     opacity: 0.5;
+    text-align: center;
   }
+}
+
+.module-perf-desc {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
 
   .acts {
     @include navMenu('horizontal');
@@ -208,6 +219,9 @@
 }
 
 .module-perf-media {
+  display: block;
+  margin-top: 2rem;
+
   ul {
     @include listStripped();
     @include grid(center, center, row, wrap);
@@ -246,6 +260,10 @@
     height: 100%;
     @include gradient(linear, to right, '#{$black} 0%, #{transparentize($black, 1)} 100%');
     box-shadow: inset 0 0 5rem $black;
+
+    @include responsive(tablet) {
+      display: none;
+    }
   }
 
   img {
@@ -257,5 +275,14 @@
     width: auto;
     height: auto;
     box-shadow: 0.5rem 0.5rem 1rem $black;
+  }
+
+  @include responsive(tablet) {
+    display: block;
+    padding: 6vw 0;
+
+    img {
+      margin: 0 auto;
+    }
   }
 }

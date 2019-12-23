@@ -11,7 +11,7 @@
 			$location   = get_field('location');
 
 	    echo '<article id="performance-single" class="page-content perf">';
-        echo '<nav class="perf-breadcrumb"><a href="' . $perfArch['link'] . '">' . $perfArch['text'] . '</a><h3>' . $dateText . ' Performance</h3></nav>';
+        echo '<nav class="perf-breadcrumb top"><a href="' . $perfArch['link'] . '">' . $perfArch['text'] . '</a><h3>' . $dateText . ' Performance</h3></nav>';
         echo ex_wrap('start', 'perf-header');
             echo '<h1 class="perf-title">' . get_the_title() . '</h1>';
             echo '<p><strong>' . performanceLocation($location)->name . '</strong>' . performanceLocation($location, 'city') . '</p>';
@@ -86,6 +86,7 @@
 				$videos	= get_field('videos');
 				echo ex_wrap('start', 'perf-media');
 					if($photos || $videos) {
+						echo '<p class="label">Media from this performance:</p>';
 						echo '<ul class="gallery">';
 							if($videos) { foreach($videos as $video) {
 								echo '<li class="video">' . $video['video'] . '</li>';
