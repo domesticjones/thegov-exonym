@@ -67,6 +67,10 @@
     display: none;
   }
 
+  a {
+    border: none;
+  }
+
   .nav-header {
     @include navMenu(horizontal);
 

@@ -11,3 +11,18 @@ if (!defined('WPINC')) { die; }
     }
     return $output;
   }
+
+  // Find Member based on Assignment
+  function gov_member($assign) {
+    $members = get_field('members', 'options');
+    $i = 0;
+    foreach($members as $dude) {
+      $dudeWhat = $dude['assign'];
+      if($dudeWhat == $assign) {
+        break;
+      }
+      $i++;
+    }
+    $dudeScent = $members[$i];
+    return $dudeScent;
+  }
