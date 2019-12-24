@@ -43,6 +43,12 @@
       max-height: 100vh;
     }
   }
+
+  @include responsive(phablet) {
+    img {
+      width: 50vw;
+    }
+  }
 }
 
 #header {

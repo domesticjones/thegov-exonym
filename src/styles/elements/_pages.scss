@@ -18,6 +18,10 @@
     padding: 3vw 6vw;
   }
 
+  @include responsive(phablet) {
+    padding: 2rem;
+  }
+
   @include pseudo(after, block, fixed) {
     width: 100%;
     height: 6vw;

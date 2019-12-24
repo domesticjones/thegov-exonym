@@ -57,6 +57,10 @@
     padding-top: 0;
   }
 
+  @include responsive(phablet) {
+    font-size: 0.85em;
+  }
+
   h1 {
     line-height: 1;
     margin: 0;
@@ -86,6 +90,10 @@
     line-height: 1.25;
     opacity: 0.5;
     font-weight: $font-light;
+
+    @include responsive(phablet) {
+      font-size: 0.8em;
+    }
   }
 
   time {
@@ -99,6 +107,11 @@
 
 .module-perf-data {
   margin-top: 1em;
+
+  @include responsive(phablet) {
+    @include grid(center, center, row, wrap);
+    font-size: 0.85em;
+  }
 
   a, p {
     @include grid(flex-start, center);
@@ -115,6 +128,10 @@
       background-position: center center;
       background-color: $white;
       background-repeat: no-repeat;
+    }
+
+    @include responsive(phablet) {
+      padding: 0.5em;
     }
 
     strong {
@@ -150,6 +167,8 @@
 }
 
 .page-content.perf {
+  padding-bottom: 6rem;
+  
   .label {
     width: 100%;
     padding: 0;
@@ -171,6 +190,10 @@
     @include navMenu('horizontal');
     width: 100%;
     font-size: 1.15em;
+
+    @include responsive(phablet) {
+      font-size: 1em;
+    }
 
     ul li {
       margin: 0.5em;
@@ -230,6 +253,10 @@
       margin: 0.5em;
       @include transition();
 
+      @include responsive(phablet) {
+        margin: 0.25em 0.5em;
+      }
+
       &:hover {
         transform: scale(1.05);
       }
@@ -238,10 +265,18 @@
 
   .video {
     width: calc(50% - 1em);
+
+    @include responsive(phablet) {
+      width: 100%;
+    }
   }
 
   .photo {
     width: calc(25% - 1em);
+
+    @include responsive(phablet) {
+      width: calc(50% - 1em);
+    }
   }
 
   a {
@@ -275,6 +310,9 @@
     width: auto;
     height: auto;
     box-shadow: 0.5rem 0.5rem 1rem $black;
+    @include responsive(phablet) {
+      max-width: 100%;
+    }
   }
 
   @include responsive(tablet) {
@@ -284,5 +322,9 @@
     img {
       margin: 0 auto;
     }
+  }
+
+  @include responsive(phablet) {
+    padding: 5rem 2rem 2rem 2rem;
   }
 }

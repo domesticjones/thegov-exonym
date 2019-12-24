@@ -7,13 +7,8 @@
   min-height: 4rem;
   background-color: $white;
   color: $black;
+  box-shadow: 0 0 1rem $white;
   @include linkColor($black);
-
-  img {
-    display: block;
-    height: 2.5em;
-    width: auto;
-  }
 
   ul {
     @include listStripped();
@@ -24,14 +19,37 @@
       padding: 0.5em;
       text-align: center;
     }
+  }
 
-    img {
-      display: block;
-      margin: 0 auto;
+  img {
+    display: block;
+    height: 2.5em;
+    width: auto;
+    margin: 0 auto;
+
+    @include responsive(phablet) {
+      width: 1.5em;
     }
+  }
 
-    span {
-      display: none;
+  a {
+    display: block;
+  }
+
+  p {
+    padding: 0;
+    line-height: 1;
+  }
+
+  span {
+    display: none;
+  }
+
+  i {
+    @include fontItalic(false);
+
+    @include responsive(phablet) {
+      font-size: 0.85em;
     }
   }
 }
