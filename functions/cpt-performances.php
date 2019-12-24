@@ -169,6 +169,6 @@ function performanceLocation($place, $type = null) {
             return $placeData->result;
         }
     } else {
-        return 'There was an error getting location data.';
+        return 'No location info.';
     }
 }

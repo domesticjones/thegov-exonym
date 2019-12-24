@@ -13,21 +13,21 @@
 	    echo '<article id="performance-single" class="page-content perf">';
         echo '<nav class="perf-breadcrumb top"><a href="' . $perfArch['link'] . '">' . $perfArch['text'] . '</a><h3>' . $dateText . ' Performance</h3></nav>';
         echo ex_wrap('start', 'perf-header');
-            echo '<h1 class="perf-title">' . get_the_title() . '</h1>';
-            echo '<p><strong>' . performanceLocation($location)->name . '</strong>' . performanceLocation($location, 'city') . '</p>';
-						echo '<time datetime="' . $date['start'] . '">';
-							if($date['start'] != $dateEnd) {
-								$dateStartFormat = DateTime::createFromFormat('Y-m-d H:i:s', $date['start']);
-								$dateEndFormat = DateTime::createFromFormat('Y-m-d H:i:s', $dateEnd);
-								echo '<strong>Start: </strong>' . $dateStartFormat->format('g:ia - D, M j, Y') . ' <strong>End: </strong>' . $dateEndFormat->format('g:ia - D, M j, Y');
-							} else {
-								$datePretty = DateTime::createFromFormat('Y-m-d H:i:s', $dateEnd);
-								echo $datePretty->format('g:ia - l, F jS, Y');
-							}
-						echo '</time>';
-						echo '<address>';
-							echo $location['address'];
-						echo '</address>';
+          echo '<h1 class="perf-title">' . get_the_title() . '</h1>';
+          echo '<p><strong>' . performanceLocation($location)->name . '</strong>' . performanceLocation($location, 'city') . '</p>';
+					echo '<time datetime="' . $date['start'] . '">';
+						if($date['start'] != $dateEnd) {
+							$dateStartFormat = DateTime::createFromFormat('Y-m-d H:i:s', $date['start']);
+							$dateEndFormat = DateTime::createFromFormat('Y-m-d H:i:s', $dateEnd);
+							echo '<strong>Start: </strong>' . $dateStartFormat->format('g:ia - D, M j, Y') . ' <strong>End: </strong>' . $dateEndFormat->format('g:ia - D, M j, Y');
+						} else {
+							$datePretty = DateTime::createFromFormat('Y-m-d H:i:s', $dateEnd);
+							echo $datePretty->format('g:ia - l, F jS, Y');
+						}
+					echo '</time>';
+					echo '<address>';
+						echo $location['address'];
+					echo '</address>';
         echo ex_wrap('end');
 				$admit      	= get_field('admittance');
 				$admitPrivate	= $admit['private'];

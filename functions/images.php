@@ -14,6 +14,16 @@ if (!isset($content_width)) {
 // Enable the featured image
 add_theme_support('post-thumbnails');
 
+// Fallback for missing Featured Image
+function ex_featuredImageFallback($html, $post_id, $post_thumbnail_id, $size, $attr) {
+  if(empty($html)) {
+    $fallbackThumb = get_field('fallback_image', 'options');
+    $html = wp_get_attachment_image($fallbackThumb['ID'], $size);
+  }
+  return $html;
+}
+add_filter('post_thumbnail_html', 'ex_featuredImageFallback', 20, 5);
+
 // Define theme image sizes
 if (function_exists('add_image_size')) {
   add_image_size('small', 400, 400);

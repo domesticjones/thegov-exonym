@@ -72,7 +72,7 @@
     line-height: 1;
     padding-left: 0.5em;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 0.5em;
     font-weight: $font-light;
 
     opacity: 0.75;
@@ -168,7 +168,7 @@
 
 .page-content.perf {
   padding-bottom: 6rem;
-  
+
   .label {
     width: 100%;
     padding: 0;
@@ -273,6 +273,10 @@
 
   .photo {
     width: calc(25% - 1em);
+
+    img {
+      border-radius: 1em;
+    }
 
     @include responsive(phablet) {
       width: calc(50% - 1em);
