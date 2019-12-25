@@ -13,3 +13,4 @@ function ex_theme_terlet() {
 add_action('after_switch_theme', 'ex_theme_terlet');
 
 require_once('cpt-performances.php');
+require_once('cpt-videos.php');
