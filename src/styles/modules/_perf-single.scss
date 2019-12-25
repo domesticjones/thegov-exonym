@@ -169,6 +169,10 @@
 .page-content.perf {
   padding-bottom: 6rem;
 
+  @include responsive(tablet) {
+    margin-top: 80vh;
+  }
+
   .label {
     width: 100%;
     padding: 0;
@@ -310,7 +314,7 @@
     position: relative;
     z-index: 2;
     max-width: 80%;
-    max-height: 70vh;
+    max-height: 100%;
     width: auto;
     height: auto;
     box-shadow: 0.5rem 0.5rem 1rem $black;
@@ -320,11 +324,12 @@
   }
 
   @include responsive(tablet) {
-    display: block;
-    padding: 6vw 0;
+    padding: 6rem 0;
+    height: 80vh;
 
     img {
       margin: 0 auto;
+      max-width: 100%;
     }
   }
 
