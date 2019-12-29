@@ -1,0 +1,44 @@
+.module-product-header {
+  display: block;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 0.25em;
+  }
+
+  p {
+    opacity: 0.5;
+    font-weight: $font-light;
+  }
+}
+
+#product-select-flag {
+
+  ul {
+    @include listStripped();
+    @include grid(center, center, row, wrap);
+  }
+
+  label {
+    display: block;
+    margin: 0;
+    padding: 0.5em 1em;
+    cursor: hand;
+    cursor: pointer;
+    border: 1px dashed $grey;
+    border-radius: 0.25em;
+    margin: 1em;
+
+    &.is-active {
+      background-color: $white;
+      color: $black;
+    }
+  }
+}
+
+.product-attrs-heading {
+  width: 100%;
+  font-weight: $font-light;
+  opacity: 0.5;
+  text-align: center;
+}
