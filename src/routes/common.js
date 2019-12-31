@@ -61,7 +61,6 @@ export default {
     // PRODUCT: Transmute Product Variable Selects into Radio Buttons
     const $prodSelectCheck = $('#product-select-flag');
     if($prodSelectCheck.length > 0) {
-
       $('.variations_form select').each((i,e) => {
         const $this = $(e);
         const id = $this.attr('id');
@@ -81,9 +80,6 @@ export default {
         });
         $prodSelectCheck.append(`<ul class="product-attrs-buttons">${attrs.join('')}</ul>`);
       });
-
-
-
       $($prodSelectCheck).find('label').on('click', (e) => {
         const $event = $(e.currentTarget);
         const target = $event.data('target');
@@ -93,5 +89,11 @@ export default {
         $event.addClass('is-active');
       });
     }
+
+    // WOOCOMMERCE: Dismiss Notices Wrapper
+    $('a[href="#dismiss"]').on('click', e => {
+      e.preventDefault();
+      $('.woocommerce-notices-wrapper').addClass('dismiss');
+    });
   },
 };

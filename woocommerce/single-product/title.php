@@ -23,7 +23,7 @@ if(has_term('music', 'product_cat', $product->ID)) {
   $tracks   = get_field('track_list');
   $release  = get_field('release_date');
   the_title( '<h1 class="product_title entry-title">', '</h1>' );
-  echo '<p class="music-header-meta">Released on ' . $release . ' &bull; ' . count($tracks) . ' Tracks</p>';
+	echo '<p class="music-header-meta">Released on ' . $release . ' &bull; ' . count($tracks) . ' Tracks</p>';
 } else {
   the_title( '<h1 class="product_title entry-title">', '</h1>' );
 }

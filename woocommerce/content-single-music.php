@@ -45,7 +45,49 @@ if ( post_password_required() ) {
 		 * @hooked woocommerce_template_single_sharing - 50
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
-		do_action( 'woocommerce_single_product_summary' );
+		//do_action( 'woocommerce_single_product_summary' );
+
+		woocommerce_template_single_title();
+
+		echo ex_wrap('start', 'product-album-left');
+			the_content();
+			$credits = get_field('credits');
+			if(!empty($credits)) {
+				echo '<ul class="product-single-list">';
+					echo '<li class="product-single-list-heading">Album Credits</li>';
+					$prod		= ($credits['producer'] ? '<li><i>Produced by:</i><span>' . $credits['producer'] . '</span></li>' : '');
+					$mix		= ($credits['mix'] ? '<li><i>Mixed by:</i><span>' . $credits['mix'] . '</span></li>' : '');
+					$master	= ($credits['master'] ? '<li><i>Mastered by:</i><span>' . $credits['master'] . '</span></li>' : '');
+					echo $prod . $mix . $master;
+				echo '</ul>';
+			}
+			$stream = get_field('streaming_services');
+			if($stream) {
+				echo '<ul class="product-single-list">';
+					echo '<li class="product-single-list-heading">Streaming Services</li>';
+					foreach($stream as $s) {
+						echo '<li><a href="' . $s['link']['url'] . '" target="' . $s['link']['target'] . '" class="product-single-stream"><img src="' . $s['icon']['url'] . '" alt="' . $s['icon']['alt'] . '" />' . $s['link']['title'] . '</a></li>';
+					}
+				echo '</ul>';
+			}
+			woocommerce_template_single_price();
+			woocommerce_template_single_add_to_cart();
+		echo ex_wrap('end');
+		echo '<hr />';
+		echo ex_wrap('start', 'product-album-right');
+			$tracks = get_field('track_list');
+			if($tracks) {
+				echo '<ol class="tracklist">';
+					foreach($tracks as $t) {
+						$feat		= ($t['featured'] ? 'featured' : '');
+						$desc		= ($t['descriptor'] ? '<small>' . $t['descriptor'] . '</small>' : '');
+						$length	= ($t['length'] ? '<i>(' . $t['length'] . ')</i>' : '');
+						$video	= ($t['video'] ? '<a href="' . $t['video'] . '"><span>Watch the Music Video!</span></a>' : '');
+						echo '<li class="' . $feat . '"><p><span>' . $t['name'] . '</span>' . $length . '</p>' . $desc . $video . '</li>';
+					}
+				echo '</ol>';
+			}
+		echo ex_wrap('end');
 	?>
 </article>
 	<?php
@@ -57,16 +99,16 @@ if ( post_password_required() ) {
 	 * @hooked woocommerce_output_related_products - 20
 	 */
 	//do_action( 'woocommerce_after_single_product_summary' );
-	?>
-	<?php
-    $albumCover = get_the_post_thumbnail($product->ID, 'large');
-    $albumCoverUrl = get_the_post_thumbnail_url($product->ID, 'large');
-    echo '</article>';
-    echo '<aside class="page-sidebar perf">';
-        echo '<div class="perf-bg" style="background-image: url(' . $albumCoverUrl . ')"></div>';
-        echo $albumCover;
-    echo '</aside>';
-    // do_action( 'woocommerce_before_single_product_summary' );
+
+  $albumCover = get_the_post_thumbnail($product->ID, 'large');
+  $albumCoverUrl = get_the_post_thumbnail_url($product->ID, 'large');
+  echo '</article>';
+  echo '<aside class="page-sidebar perf">';
+      echo '<div class="perf-bg" style="background-image: url(' . $albumCoverUrl . ')"></div>';
+      echo $albumCover;
+  echo '</aside>';
+
+  // do_action( 'woocommerce_before_single_product_summary' );
 	?>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

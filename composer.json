@@ -28,6 +28,7 @@
     "wpackagist-plugin/disable-gutenberg": "*",
     "wpackagist-plugin/favicon-by-realfavicongenerator": "*",
     "wpackagist-plugin/woocommerce": "*",
+    "wpackagist-plugin/ari-fancy-lightbox": "*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }

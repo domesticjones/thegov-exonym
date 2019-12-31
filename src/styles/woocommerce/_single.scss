@@ -1,6 +1,7 @@
 .module-product-header {
   display: block;
   text-align: center;
+  width: 100%;
 
   h1 {
     margin-bottom: 0.25em;
@@ -13,6 +14,7 @@
 }
 
 #product-select-flag {
+  font-size: 0.85em;
 
   ul {
     @include listStripped();
@@ -26,13 +28,27 @@
     cursor: hand;
     cursor: pointer;
     border: 1px dashed $grey;
-    border-radius: 0.25em;
-    margin: 1em;
+    border-radius: 1em;
+    margin: 0.25em 0.5em;
+    @include transition();
 
     &.is-active {
       background-color: $white;
       color: $black;
+      border: 1px solid $white;
+      box-shadow: 0 0 0.5em $white;
     }
+
+    &:hover {
+      box-shadow: 0 0 0.5em $white;
+      border: 1px solid $white;
+    }
+  }
+}
+
+.single_variation_wrap {
+  .quantity {
+    @extend %visuallyhidden;
   }
 }
 
@@ -41,4 +57,263 @@
   font-weight: $font-light;
   opacity: 0.5;
   text-align: center;
+}
+
+table.variations {
+  display: none;
+}
+
+.price {
+  @include grid(center, center);
+  font-size: 1.5em;
+  @include fontBold();
+
+  ins,
+  del,
+  .amount {
+    display: block;
+    padding: 0.25em 0.5em;
+  }
+
+  ins {
+    text-decoration: none;
+  }
+}
+
+.stock {
+  text-align: center;
+  font-weight: $font-light;
+  opacity: 0.5;
+  padding: 0;
+}
+
+.single_add_to_cart_button {
+  margin: 1em auto;
+  padding: 0.5em 1em;
+  background-color: transparent;
+  font-size: 1.5em;
+  height: auto;
+  line-height: 1;
+  font-weight: $font-light;
+  border-radius: 1em;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $white;
+    color: $black;
+    box-shadow: 0 0 0.5em $white;
+    transform: scale(1.1);
+    outline: none;
+  }
+}
+
+.woocommerce-variation-add-to-cart {
+  @include grid(center, center, column);
+}
+
+.page-content.music {
+  @include grid(space-between, stretch, row, wrap);
+
+  hr {
+    width: 1px;
+    border: none;
+    background-color: $grey-dark;
+
+    @include responsive(desktop) {
+      width: 100%;
+      height: 1px;
+    }
+  }
+}
+
+.module-product-album-left {
+  display: block;
+  width: calc(50% - 1px);
+  padding: 1rem;
+  font-weight: $font-light;
+
+  p {
+    padding-bottom: 1em;
+
+    &.price {
+      padding: 0;
+    }
+  }
+
+  @include responsive(desktop) {
+    width: 100%;
+  }
+}
+
+.module-product-album-right {
+  width: calc(50% - 1px);
+  padding: 1rem;
+
+  @include responsive(desktop) {
+    width: 100%;
+    padding: 2rem 0;
+  }
+}
+
+.tracklist {
+  width: 100%;
+  margin-bottom: auto;
+
+  p {
+    @include grid(space-between, center);
+    padding: 0;
+    font-weight: $font-light;
+    line-height: 1;
+    position: relative;
+    @include pseudo(before, block, absolute) {
+      z-index: 0;
+      top: 0.5em;
+      width: 100%;
+      height: 1px;
+      background-color: $grey-dark;
+      @include transition();
+    }
+
+    span,
+    i {
+      position: relative;
+      z-index: 1;
+      background-color: $black;
+    }
+
+    span {
+      padding-right: 0.5em;
+      margin-right: auto;
+    }
+
+    i {
+      color: $grey;
+      font-size: 0.75em;
+      padding-left: 0.5em;
+    }
+  }
+
+  small {
+    display: block;
+    line-height: 1;
+    margin: 0;
+    opacity: 0.5;
+    font-weight: $font-light;
+    font-size: 0.85em;
+    @include fontItalic();
+    @include transition();
+  }
+
+  .featured p {
+    @include fontBold();
+  }
+
+  a {
+    display: inline-block;
+    font-size: 0.85em;
+    background-color: $white;
+    border-bottom: none;
+    text-transform: uppercase;
+    padding: 0.25em 1em;
+    line-height: 2;
+    color: $black;
+    border-radius: 1em;
+    margin: 0.5em auto;
+    height: auto;
+    @include fontBold();
+    @include pseudo(before, inline-block, relative) {
+      width: 1.5em;
+      height: 1.5em;
+      top: 0.25em;
+      margin-right: 0.5em;
+      @include icon(eyeball);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    &:hover {
+      transform: scale(0.95);
+      box-shadow: 0 0 1em $white;
+    }
+  }
+
+  li {
+    @include transition();
+
+    &:hover {
+      p::before {
+        background-color: $white;
+      }
+
+      small {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover {
+    li {
+      opacity: 0.333;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.product-single-list {
+  @include listStripped();
+  @include grid(center, center, row, wrap);
+  margin-bottom: 1em;
+  text-align: center;
+  border-bottom: 1px solid $grey-dark;
+  padding-bottom: 1em;
+
+  span,
+  i {
+    display: block;
+  }
+
+  i {
+    font-size: 0.75em;
+    opacity: 0.25;
+    @include fontItalic(false);
+  }
+
+  li {
+    padding: 0.5em;
+    line-height: 1;
+  }
+}
+
+li.product-single-list-heading {
+  width: 100%;
+  font-size: 0.85em;
+  opacity: 0.5;
+  padding: 0;
+}
+
+a.product-single-stream {
+  @include grid(center, center);
+  border: 1px solid $white;
+  background-color: $white;
+  border-radius: 1em;
+  color: $black;
+  font-size: 0.75em;
+  padding: 0.5em 1em;
+
+  img {
+    display: block;
+    height: 1.5em;
+    width: auto;
+    margin-right: 0.5em;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1em $white;
+  }
 }

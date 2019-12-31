@@ -21,5 +21,9 @@
       #header .social-info {
         background-color: ' . $memberColor . ';
       }
+
+      .bagoshit-accent {
+        fill: ' . $memberColor . ' !important;
+      }
     </style>
   ';

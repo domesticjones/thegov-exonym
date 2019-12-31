@@ -118,7 +118,7 @@
                     "key": "field_5e03cac864e44",
                     "label": "Video",
                     "name": "video",
-                    "type": "oembed",
+                    "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -127,8 +127,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "width": 1920,
-                    "height": 1080
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         },
@@ -300,5 +300,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1577307746
+    "modified": 1577687476
 }

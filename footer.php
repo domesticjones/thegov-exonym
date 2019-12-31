@@ -1,4 +1,5 @@
 			</main>
+			<?php get_template_part('modules/bagoshit'); ?>
 			<footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 				<div class="wrap">
 					<p class="copyright">&copy; Copyright <?php ex_brand('legal'); ?></p>
