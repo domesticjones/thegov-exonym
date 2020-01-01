@@ -124,6 +124,10 @@ table.variations {
       width: 100%;
       height: 1px;
     }
+
+    @include responsive(tablet) {
+      margin-top: 80vh;
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-<svg id="bagoshit" enable-background="new 0 0 231.7 319.4" version="1.1" viewBox="0 0 231.7 319.4" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<svg id="bagoshit" enable-background="new 0 0 231.7 319.4" version="1.1" viewBox="0 0 231.7 319.4" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" style="display: none;">
 <style type="text/css">
 	.bagoshit-accent { fill:#f2f2f2; }
 	.bagoshit-white { fill:#f2f2f2; }
