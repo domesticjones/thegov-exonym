@@ -1,0 +1,191 @@
+.module-contact-head {
+  h1 {
+    text-align: center;
+
+    span {
+      @include fontBold();
+    }
+  }
+}
+
+.module-contact-promo {
+  margin: 2em 0 4em 0;
+
+  h2 {
+    border-bottom: 1px solid $white;
+    text-align: center;
+    padding-bottom: 0.5em;
+
+    span {
+      color: $white;
+    }
+  }
+
+  nav {
+    @include grid(center, center, row, wrap);
+
+    a {
+      @include grid(center, center);
+      margin: 1em;
+      border: none;
+
+      @include responsive(tablet-wide) {
+        @include grid(flex-start, center);
+        width: 100%;
+      }
+
+      &:hover {
+        .promo-image,
+        .promo-application {
+          transform: scale(1.1);
+        }
+
+        em {
+          opacity: 1;
+        }
+      }
+    }
+
+    p {
+      padding: 0 0 0 0.5em;
+      line-height: 1;
+    }
+
+    strong,
+    em {
+      display: block;
+    }
+
+    em {
+      font-size: 0.85em;
+      opacity: 0.5;
+      @include transition()
+    }
+  }
+}
+
+.promo {
+  &-image,
+  &-application {
+    @include grid(center, center);
+    width: 6em;
+    height: 6em;
+    background-color: $white;
+    padding: 1em;
+    border-radius: 0.5em;
+    @include transition();
+    transform-origin: right;
+  }
+
+  &-image img {
+    display: block;
+    max-height: 5em;
+    max-width: 5em;
+    width: auto;
+    height: auto;
+  }
+
+  &-application {
+    @include icon('pdf');
+    background-size: auto 4em;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+.module-contact-press {
+  h2 {
+    @include grid(center, center);
+    border-bottom: 1px solid $white;
+    padding-bottom: 0.5em;
+
+    strong {
+      color: $white;
+    }
+
+    span {
+      display: block;
+      font-size: 0.5em;
+      padding-left: 0.5em;
+      line-height: 1;
+
+      i {
+        display: block;
+        font-size: 0.75em;
+        @include fontItalic(false);
+        font-weight: $font-light;
+        opacity: 0.666;
+      }
+    }
+
+    @include responsive(tablet-wide) {
+      @include grid(center, center, column);
+      text-align: center;
+
+      span {
+        margin-top: 1em;
+        padding-left: 0;
+      }
+    }
+
+    @include responsive(phablet) {
+      font-size: 1.5em;
+
+      span {
+        font-size: 0.75em;
+      }
+    }
+  }
+}
+
+.contact-press-data{
+  @include grid(flex-start, stretch);
+
+  @include responsive(tablet) {
+    @include grid(center, center, column);
+  }
+
+  hr {
+    width: 0;
+    border-width: 1px;
+
+    @include responsive(tablet) {
+      width: 100%;
+      height: 0;
+    }
+  }
+
+  nav {
+    padding: 1em;
+    width: 50%;
+    font-size: 1.25em;
+
+    @include responsive(tablet) {
+      width: 100%;
+    }
+
+    a {
+      display: block;
+      padding: 0.5em 0;
+    }
+
+    strong,
+    em{
+      display: block;
+    }
+
+    em {
+      font-size: 0.85em;
+      font-weight: $font-light;
+    }
+  }
+}
+
+#contact-quotes {
+  padding: 1em;
+  width: 50%;
+
+  @include responsive(tablet) {
+    width: 100%;
+  }
+}

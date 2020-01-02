@@ -7,7 +7,8 @@
       h2.accent,
       address,
       time,
-      .upcoming-data li.button {
+      .upcoming-data li.button,
+      blockquote:before {
         border-color: ' . $memberColor . ';
         color: ' . $memberColor . ';
       }

@@ -6,7 +6,7 @@
 }
 
 .module {
-  @include grid(center, center);
+  display: block;
   overflow: hidden;
   max-width: 100%;
   position: relative;

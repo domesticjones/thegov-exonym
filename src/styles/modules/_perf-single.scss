@@ -107,9 +107,9 @@
 
 .module-perf-data {
   margin-top: 1em;
+  @include grid(center, center, row, wrap);
 
   @include responsive(phablet) {
-    @include grid(center, center, row, wrap);
     font-size: 0.85em;
   }
 

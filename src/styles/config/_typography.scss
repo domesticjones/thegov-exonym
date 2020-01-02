@@ -1,11 +1,11 @@
 /**
   Font Families & Settings
   ---------------------------------------------------------------------- */
-@import url("https://use.typekit.net/bop3gux.css"); // Futura PT
+@import url("https://use.typekit.net/bop3gux.css"); // Futura PT & Skippy Sharp
 
 $font-default: "futura-pt", sans-serif;
 $font-heading: "futura-pt", sans-serif;
-$font-deco: '';
+$font-deco: 'skippy-sharp', sans-serif;
 
 $font-size: 16px;
 
@@ -95,28 +95,27 @@ h6 {
   padding: 0;
   margin: 0;
   line-height: 1;
-  font-family: $font-heading;
-
-  @include fontBold();
+  font-family: $font-deco;
+  font-weight: $font-light;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   margin-bottom: 0.5em;
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 0.5em;
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-bottom: 1em;
 }
 
 h4 {
-  font-size: 1.25em;
+  font-size: 1.5em;
   margin-bottom: 1em;
 }
 
@@ -171,12 +170,27 @@ blockquote {
   margin: 0 0 1.25em 0;
   position: relative;
 
+  q {
+    display: block;
+    font-size: 1.5em;
+    font-weight: $font-light;
+    line-height: 1;
+    font-family: $font-deco;
+  }
+
+  cite {
+    display: block;
+    margin-top: 0.5em;
+    font-weight: $font-light;
+    text-align: right;
+  }
+
   @include pseudo(before, block, absolute, '\201C') {
     font-family: Georgia, serif;
     font-size: 4em;
     @include fontBold();
     left: 0.5rem;
-    top: 0.25rem;
+    top: 0.5em;
   }
 
   @include pseudo(after);
