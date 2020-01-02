@@ -7,6 +7,8 @@
     add_action('wp_head', 'gov_color', 100);
     get_header();
     echo '<article id="contact-template" class="page-content">';
+        $fancyWords4hi = ['Getting to Know', 'Gettin\' Intimate wit', 'Showers of Words from', ''];
+
         if(have_posts()): while(have_posts()): the_post();
             echo ex_wrap('start', 'contact-head');
                 echo '<h1>Getting to Know <span class="accent">' . ex_brand() . '</span></h1>';
@@ -21,9 +23,7 @@
                             $type = $p['type'];
                             echo '<a href="' . $p['url'] . '">';
                                 echo '<div class="promo-' . $type . '">';
-                                    if($type === 'image') {
-                                        echo wp_get_attachment_image($p['ID'], 'small');
-                                    }
+                                    if($type === 'image') { echo wp_get_attachment_image($p['ID'], 'small'); }
                                 echo '</div>';
                                 echo '<p class="promo-data">';
                                     echo '<strong>' . $p['title']. '</strong>';

@@ -54,9 +54,8 @@ if ( post_password_required() ) {
 			$credits = get_field('credits');
 			if(!empty($credits)) {
 				echo '<ul class="product-single-list">';
-					echo '<li class="product-single-list-heading">Album Credits</li>';
-					$prod		= ($credits['producer'] ? '<li><i>Produced by:</i><span>' . $credits['producer'] . '</span></li>' : '');
-					$mix		= ($credits['mix'] ? '<li><i>Mixed by:</i><span>' . $credits['mix'] . '</span></li>' : '');
+					$prod   = ($credits['producer'] ? '<li><i>Produced by:</i><span>' . $credits['producer'] . '</span></li>' : '');
+					$mix    = ($credits['mix'] ? '<li><i>Mixed by:</i><span>' . $credits['mix'] . '</span></li>' : '');
 					$master	= ($credits['master'] ? '<li><i>Mastered by:</i><span>' . $credits['master'] . '</span></li>' : '');
 					echo $prod . $mix . $master;
 				echo '</ul>';

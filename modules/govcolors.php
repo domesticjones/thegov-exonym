@@ -13,6 +13,10 @@
         color: ' . $memberColor . ';
       }
 
+      .button {
+        box-shadow: 0 0 1em ' . $memberColor . ';
+      }
+
       #header,
       .nav-responsive {
         background-color: ' . $memberColor . ';

@@ -28,7 +28,7 @@
     cursor: hand;
     cursor: pointer;
     border: 1px dashed $grey;
-    border-radius: 1em;
+    border-radius: 0.25rem;
     margin: 0.25em 0.5em;
     @include transition();
 
@@ -89,20 +89,22 @@ table.variations {
 
 .single_add_to_cart_button {
   margin: 1em auto;
-  padding: 0.5em 1em;
+  padding: 0.75em 2em;
   background-color: transparent;
-  font-size: 1.5em;
+  font-size: 1em;
   height: auto;
   line-height: 1;
   font-weight: $font-light;
-  border-radius: 1em;
+  border: 1px solid $white;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 1em $white;
 
   &:hover,
   &:active,
   &:focus {
     background-color: $white;
     color: $black;
-    box-shadow: 0 0 0.5em $white;
+    box-shadow: 0 0 1em $white;
     transform: scale(1.1);
     outline: none;
   }
@@ -161,7 +163,7 @@ table.variations {
 }
 
 .tracklist {
-  width: 100%;
+  width: calc(100% - 2rem);
   margin-bottom: auto;
 
   p {
@@ -170,6 +172,7 @@ table.variations {
     font-weight: $font-light;
     line-height: 1;
     position: relative;
+
     @include pseudo(before, block, absolute) {
       z-index: 0;
       top: 0.5em;
@@ -218,14 +221,14 @@ table.variations {
     font-size: 0.85em;
     background-color: $white;
     border-bottom: none;
-    text-transform: uppercase;
     padding: 0.25em 1em;
     line-height: 2;
     color: $black;
-    border-radius: 1em;
+    border-radius: 0.25rem;
     margin: 0.5em auto;
     height: auto;
-    @include fontBold();
+    font-weight: $font-light;
+
     @include pseudo(before, inline-block, relative) {
       width: 1.5em;
       height: 1.5em;
@@ -245,6 +248,8 @@ table.variations {
 
   li {
     @include transition();
+    margin: 0;
+    padding: 0.15em 0;
 
     &:hover {
       p::before {
@@ -259,7 +264,7 @@ table.variations {
 
   &:hover {
     li {
-      opacity: 0.333;
+      opacity: 0.5;
 
       &:hover {
         opacity: 1;
@@ -283,7 +288,7 @@ table.variations {
 
   i {
     font-size: 0.75em;
-    opacity: 0.25;
+    opacity: 0.5;
     @include fontItalic(false);
   }
 
@@ -304,7 +309,7 @@ a.product-single-stream {
   @include grid(center, center);
   border: 1px solid $white;
   background-color: $white;
-  border-radius: 1em;
+  border-radius: 0.25rem;
   color: $black;
   font-size: 0.75em;
   padding: 0.5em 1em;

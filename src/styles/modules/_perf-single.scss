@@ -16,8 +16,8 @@
   text-align: center;
 
   h3 {
-    font-size: 1.15em;
-    margin: 0.25em 0;
+    font-size: 2.5em;
+    margin: 0 0 0.25em 0;
     opacity: 0.5;
   }
 
@@ -65,6 +65,9 @@
     line-height: 1;
     margin: 0;
     padding: 0;
+    font-family: $font-default;
+    @include fontBold();
+    font-size: 2em;
   }
 
   p {
@@ -117,17 +120,19 @@
     @include grid(flex-start, center);
     padding: 1em;
     margin: 0;
-    border: 0 !important;
-    @include transition();
+    border: 0;
+
     @include pseudo('before') {
       width: 2em;
       height: 2em;
-      border-radius: 100%;
+      border-radius: 0.25rem;
+      box-shadow: 0 0 1em $white;
       margin-right: 0.5em;
       background-size: auto 66.6%;
       background-position: center center;
       background-color: $white;
       background-repeat: no-repeat;
+      @include transition();
     }
 
     @include responsive(phablet) {
@@ -160,7 +165,7 @@
     &.cost::before { @include icon('money'); }
     &.tickets::before { @include icon('tickets'); }
 
-    &:hover {
+    &:hover::before {
       transform: scale(1.15);
     }
   }
@@ -207,11 +212,12 @@
       display: block;
       padding: 0.5em 1em;
       border: 1px solid $grey-dark !important;
-      border-radius: 1rem;
+      border-radius: 0.25rem;
     }
 
     a:hover {
       transform: scale(1.15);
+      box-shadow: 0 0 1em $white;
     }
   }
 
@@ -236,7 +242,8 @@
       background-color: $white;
       color: $black;
       padding: 0.5em 1em;
-      border-radius: 0.5rem;
+      border-radius: 0.25rem;
+      box-shadow: 0 0 1em $white;
 
       &:hover {
         transform: scale(1.15);

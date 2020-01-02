@@ -40,7 +40,7 @@
 }
 
 .upcoming-wrap {
-  margin-bottom: 6vw;
+  margin-bottom: 4rem;
 
   a {
     @include grid(center, center);
@@ -144,10 +144,14 @@
 
   h2 {
     margin-bottom: 0;
+    font-family: $font-default;
+    font-weight: $font-bold;
+    font-size: 2em;
   }
 
   h3 {
     font-size: 1em;
+    font-family: $font-default;
     font-weight: $font-normal;
 
     small {
@@ -177,7 +181,7 @@
     display: inline-block;
     padding: 0.5em 1.5em;
     font-weight: $font-light;
-    border-radius: 1em;
+    border-radius: 0.25rem;
     margin-top: 1em;
     background-color: transparent;
     border: 1px solid $white;
