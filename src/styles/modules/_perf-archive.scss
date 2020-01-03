@@ -292,10 +292,15 @@
 
   address {
     @include fontItalic(false);
+    font-size: 0.85em;
+    font-weight: $font-light;
   }
 
   h3 {
+    font-family: $font-default;
+    font-size: 1.15em;
     margin: 0 0 0.25em;
+    @include fontBold();
     @include transition();
 
     @include responsive(phablet) {

@@ -5,6 +5,8 @@
 
   h1 {
     margin-bottom: 0.25em;
+    font-family: $font-default;
+    @include fontBold();
   }
 
   p {

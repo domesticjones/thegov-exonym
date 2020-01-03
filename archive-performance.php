@@ -9,6 +9,7 @@
 
     $dateNow = date('Y-m-d H:i:s');
     $fancyWords4shows = ['Performances', 'Shindigs', 'Discharges', 'Doings', 'Demonstrations', 'Feats', 'Triumphs', 'Executions', 'Conquests'];
+    $fancyWords4info = ['More Info', 'Tell Me More', 'Gimme Them Deets', 'Comprehensive Data', 'The Full Situation', 'More Fuckin Info'];
 
     $upcomingPerfs = get_posts(array(
       'post_type'       => 'performance',
@@ -93,7 +94,7 @@
                     echo '<li class="cost">Cost: <strong>' . ($admitAdv ? $admitAdv . '/adv &bull; ' .$admitDoors . '/door' : $admitDoors) . '</strong></li>';
                   }
                 }
-                echo '<li class="button">More Information</li>';
+                echo '<li class="button">' . $fancyWords4info[array_rand($fancyWords4info)] . '</li>';
               echo '</ul>';
             echo '</div>';
           echo '</a>';

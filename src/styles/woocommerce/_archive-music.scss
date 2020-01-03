@@ -1,0 +1,128 @@
+.module-music-heading {
+  text-align: center;
+}
+
+.module-music-archive {
+  margin-bottom: 6rem;
+
+  a {
+    @include grid(center, center, row);
+    border: none;
+
+    @include responsive(desktop) {
+      @include grid(center, center, column);
+    }
+  }
+
+  &:nth-child(even) {
+    a {
+      @include grid(center, center, row-reverse);
+
+      @include responsive(desktop) {
+        @include grid(center, center, column);
+      }
+    }
+
+    .data {
+      text-align: right;
+
+      @include responsive(desktop) {
+        text-align: center;
+      }
+    }
+  }
+
+  .photo {
+    position: relative;
+    padding: 2rem;
+    width: 65%;
+    z-index: 0;
+
+    @include responsive(desktop) {
+      width: 100%;
+    }
+
+    &-bg {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      @include filter-blur(0.666rem);
+      @include transition();
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      box-shadow: 0.25em 0.25em 1em $black;
+      @include transition();
+    }
+  }
+
+  .data {
+    width: 35%;
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+
+    @include responsive(desktop) {
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: $font-default;
+      @include fontBold();
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.85em;
+      font-weight: $font-light;
+      padding: 0;
+      line-height: 1;
+      margin: 1em 0;
+    }
+
+    ul {
+      @include listStripped();
+      line-height: 1;
+
+      li {
+        padding: 0.25em;
+      }
+    }
+  }
+
+  .button {
+    font-size: 0.85em;
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    font-weight: $font-light;
+    border-radius: 0.25rem;
+    margin-top: 1em;
+    background-color: transparent;
+    border: 1px solid $white;
+    @include transition();
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+
+    .photo-bg {
+      @include filter-blur(1rem);
+      box-shadow: 1em 1em 1em $black;
+      opacity: 0.666;
+    }
+
+    button {
+      transform: scale(1.15);
+    }
+  }
+}

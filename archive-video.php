@@ -43,13 +43,11 @@
                 $added = get_the_date('Ymd');
                 foreach($tracks as $t) {
                     if($t['video']) {
-                        $name           = $t['name'];
-                        $releaseRaw     = get_field('release_date');
-                        $releaseMake    = DateTime::createFromFormat('F j, Y', $releaseRaw);
-                        $release        = $releaseMake->format('Ymd');
-                        $video          = parse_url(get_field('video', $post->ID, false)); parse_str($video['query'], $videoData);
-                        $video          = parse_url($t['video']); parse_str($video['query'], $videoData);
-                        $videoId        = $videoData['v'];
+                        $name       = $t['name'];
+                        $release    = get_field('release_date');
+                        $video      = parse_url(get_field('video', $post->ID, false)); parse_str($video['query'], $videoData);
+                        $video      = parse_url($t['video']); parse_str($video['query'], $videoData);
+                        $videoId    = $videoData['v'];
                         if($videoId) {
                             array_push($vidsMusic, array(
                                 'id'        => $videoId,
@@ -78,10 +76,10 @@
                 $i = 0;
                 foreach($videos as $v) {
                     if($v['video']) {
-                        $name   = $v['info']['song'];
+                        $name       = $v['info']['song'];
                         $videoRaw   = get_post_meta($post->ID, 'videos_' . $i . '_video', false);
-                        $video  = parse_url($videoRaw[0]); parse_str($video['query'], $videoData);
-                        $videoId = $videoData['v'];
+                        $video      = parse_url($videoRaw[0]); parse_str($video['query'], $videoData);
+                        $videoId    = $videoData['v'];
                         if($videoId) {
                             array_push($vidsLive, array(
                                 'id'        => $videoId,
@@ -98,7 +96,9 @@
         wp_reset_query();
 
 
-        var_dump($vidsLive);
+        var_dump($vidsMusic);
+
+
         echo '</article>';
 
         echo '<aside class="page-sidebar">';
@@ -106,12 +106,6 @@
             include('modules/govmembervid.php');
         echo '</aside>';
 
-
-
-    // Query than compose for Live Videos (Events -> Extract Videos)
-
-
-    // Query then compose for Music Videos (WC -> Albums -> Extract Videos)
 
 
     // TODO: Construct objects for each of the 3 query types

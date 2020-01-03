@@ -37,8 +37,7 @@ function ex_changeAddToCart() {
 }
 add_filter('woocommerce_product_single_add_to_cart_text', 'ex_changeAddToCart');
 
-
-
+// Change Add to Cart Confirmation
 add_filter('wc_add_to_cart_message', 'handler_function_name', 10, 2);
 function handler_function_name($message, $product_id) {
 	$output = get_the_post_thumbnail($product_id, 'small');

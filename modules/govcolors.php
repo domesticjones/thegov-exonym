@@ -8,6 +8,7 @@
       address,
       time,
       .upcoming-data li.button,
+      .module-music-archive .button,
       blockquote:before {
         border-color: ' . $memberColor . ';
         color: ' . $memberColor . ';
