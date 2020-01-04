@@ -60,16 +60,35 @@
                     echo '</div>';
                 echo ex_wrap('end');
             }
-            echo ex_wrap('start', 'contact-photos');
-                echo '<h2 class="accent"><span>' . ex_brand() . '</span>: for your Viewing Pleasure</h2>';
-            echo ex_wrap('end');
+            $livePhotosArgs = array(
+                'posts_per_page'    => -1,
+                'post_type'         => 'performance',
+                'meta_query' => array(array(
+                    'key' => 'photos',
+                    'value' => '',
+                    'compare' => '!=',
+                )),
+            );
+            $livePhotosQuery = new WP_Query($livePhotosArgs);
+            if($livePhotosQuery->have_posts()):
+                echo ex_wrap('start', 'contact-photos');
+                    echo '<h2 class="accent">' . ex_brand() . ': <span>Ocular Titillation</span></h2>';
+                    echo '<ul>';
+                        while($livePhotosQuery->have_posts()): $livePhotosQuery->the_post();
+                            $photos = get_field('photos');
+                            foreach($photos as $p) {
+                                echo '<li><a href="' . $p['sizes']['jumbo'] . '">' . wp_get_attachment_image($p['ID']) . '</a></li>';
+                            }
+                        endwhile;
+                    echo '</ul>';
+                echo ex_wrap('end');
+            endif;
+            wp_reset_query();
         endwhile; endif;
     echo '</article>';
-
     echo '<aside class="page-sidebar">';
         $memberVid = gov_member('Contact')['long_video'];
         include('modules/govmembervid.php');
     echo '</aside>';
-
     get_footer();
 ?>

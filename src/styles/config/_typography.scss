@@ -96,7 +96,11 @@ h6 {
   margin: 0;
   line-height: 1;
   font-family: $font-deco;
-  font-weight: $font-light;
+  @include fontBold(false);
+
+  strong {
+    @include fontBold(false);
+  }
 }
 
 h1 {
@@ -167,7 +171,7 @@ p {
 blockquote {
   display: block;
   padding: 1em 1.25em 1em 3em;
-  margin: 0 0 1.25em 0;
+  margin: 0;
   position: relative;
 
   q {

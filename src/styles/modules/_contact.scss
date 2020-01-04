@@ -189,3 +189,45 @@
     width: 100%;
   }
 }
+
+.module-contact-photos {
+  margin-top: 3rem;
+
+  h2 {
+    text-align: center;
+    border-bottom: 1px solid $white;
+    padding: 0.5em;
+
+    span {
+      color: $white;
+    }
+  }
+
+  ul {
+    @include listStripped();
+    @include grid(center, center, row, wrap);
+
+    li {
+      width: 20%;
+
+      @include responsive(phablet) {
+        width: 33.333%;
+      }
+    }
+  }
+
+  a, img {
+    display: block;
+    border: none;
+    width: 100%;
+  }
+
+  img {
+    transform: scale(0.9);
+    @include transition();
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
