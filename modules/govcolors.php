@@ -9,7 +9,8 @@
       time,
       .upcoming-data li.button,
       .module-music-archive .button,
-      blockquote:before {
+      blockquote:before,
+      .module-merch-category a:hover p {
         border-color: ' . $memberColor . ';
         color: ' . $memberColor . ';
       }

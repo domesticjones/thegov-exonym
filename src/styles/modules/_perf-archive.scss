@@ -24,13 +24,13 @@
       text-align: center;
 
       span {
-        margin-top: 1em;
+        margin-top: 0.25em;
         padding-left: 0;
       }
     }
 
     @include responsive(phablet) {
-      font-size: 1.5em;
+      font-size: 2.5em;
 
       span {
         font-size: 0.75em;
@@ -41,6 +41,10 @@
 
 .upcoming-wrap {
   margin-bottom: 4rem;
+
+  @include responsive(phablet) {
+    margin-bottom: 2rem;
+  }
 
   a {
     @include grid(center, center);
@@ -244,8 +248,8 @@
     margin: 3vw 0 1em 0;
 
     @include responsive(phablet) {
-      font-size: 1.5em;
-      margin-top: 2em;
+      font-size: 2em;
+      margin-top: 2rem;
     }
 
     span {

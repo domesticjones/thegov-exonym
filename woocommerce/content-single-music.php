@@ -102,7 +102,7 @@ if ( post_password_required() ) {
   $albumCover = get_the_post_thumbnail($product->ID, 'large');
   $albumCoverUrl = get_the_post_thumbnail_url($product->ID, 'large');
   echo '</article>';
-  echo '<aside class="page-sidebar perf">';
+  echo '<aside class="page-sidebar perf music">';
       echo '<div class="perf-bg" style="background-image: url(' . $albumCoverUrl . ')"></div>';
       echo $albumCover;
   echo '</aside>';

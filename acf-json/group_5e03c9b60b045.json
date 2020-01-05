@@ -8,7 +8,7 @@
             "name": "release_date",
             "type": "date_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -300,5 +300,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1578010516
+    "modified": 1578198309
 }

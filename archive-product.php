@@ -19,46 +19,59 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-    function gov_color() {
-        $memberColor = gov_member('Merch')['color'];
-        include('modules/govcolors.php');
-    }
-    add_action('wp_head', 'gov_color', 100);
-    get_header();
-    echo '<article id="merch-template" class="page-content">';
-        $productCats = get_terms('product_cat', array('hide_empty' => false, 'exclude' => 15));
-        if(!is_wp_error($productCats)) {
-            foreach ($productCats as $cat) {
-                echo ex_wrap('start', 'merch-category');
-                    echo '<h2 class="accent"><strong>' . $cat->name . '</strong><span><i>by:</i>' . ex_brand() . '</span></h2>';
-                    $catPostsArgs = array(
-                        'post_type'         => 'product',
-                        'posts_per_page'    => -1,
-                        'tax_query'         => array(array(
-                            'taxonomy'  => 'product_cat',
-                            'field'     => 'slug',
-                            'terms'     => $cat->slug,
-                        )),
-                    );
-                    $catPosts = new WP_Query($catPostsArgs);
-                    if($catPosts->have_posts()) {
-                        echo '<ul>';
-                        while($catPosts->have_posts()) {
-                            $catPosts->the_post();
-                            echo '<li>';
-                                the_title();
-                            echo '</li>';
-                        }
-                        echo '</ul>';
-                    }
-                echo ex_wrap('end');
+  function gov_color() {
+	  $memberColor = gov_member('Merch')['color'];
+	  include('modules/govcolors.php');
+  }
+  add_action('wp_head', 'gov_color', 100);
+  get_header();
+  echo '<article id="merch-template" class="page-content">';
+    $productCats = get_terms('product_cat', array('hide_empty' => false, 'exclude' => 15));
+		$fancyWords4buy = [
+			'Bi This Guy', 'Buy This', 'Get This', 'Do the Buy Thing',
+			'Have In Your Life', 'Get for a Friend', 'Buy for Grandma',
+			'Buy for Grandpa', 'Price for your Cousin', 'Have and Hold'
+		];
+    if(!is_wp_error($productCats)) {
+      foreach ($productCats as $cat) {
+        echo ex_wrap('start', 'merch-category');
+          echo '<h2 class="accent"><strong>' . $cat->name . '</strong><span><i>by:</i>' . ex_brand() . '</span></h2>';
+          $catPostsArgs = array(
+            'post_type'         => 'product',
+            'posts_per_page'    => -1,
+            'tax_query'         => array(array(
+              'taxonomy'  => 'product_cat',
+              'field'     => 'slug',
+              'terms'     => $cat->slug,
+            )),
+          );
+          $catPosts = new WP_Query($catPostsArgs);
+          if($catPosts->have_posts()) {
+            echo '<nav>';
+            while($catPosts->have_posts()) {
+              $catPosts->the_post();
+							echo '<a href="' . get_the_permalink() . '">';
+								ob_start();
+									woocommerce_template_loop_price();
+									$price = ob_get_contents();
+								ob_end_clean();
+								$priceNice = (strlen($price) > 1 ? $price : '<em>Currently Unavailable</em>');
+								the_post_thumbnail('small');
+
+								the_title('<h3>', '</h3>');
+								echo '<p>'. $fancyWords4buy[array_rand($fancyWords4buy)] . '&bull;' . $priceNice . '</p>';
+              echo '</a>';
             }
-        }
-    echo '</article>';
+            echo '</nav>';
+          }
+        echo ex_wrap('end');
+      }
+    }
+  echo '</article>';
 
-    echo '<aside class="page-sidebar">';
-        $memberVid = gov_member('Merch')['long_video'];
-        include('modules/govmembervid.php');
-    echo '</aside>';
+  echo '<aside class="page-sidebar">';
+    $memberVid = gov_member('Merch')['long_video'];
+    include('modules/govmembervid.php');
+  echo '</aside>';
 
-    get_footer();
+  get_footer();
