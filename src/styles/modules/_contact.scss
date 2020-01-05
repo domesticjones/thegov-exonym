@@ -167,6 +167,16 @@
     a {
       display: block;
       padding: 0.5em 0;
+      transform: scale(0.9);
+      transform-origin: left;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:hover {
+        transform: scale(1);
+      }
     }
 
     strong,
