@@ -10,12 +10,14 @@
       .upcoming-data li.button,
       .module-music-archive .button,
       blockquote:before,
-      .module-merch-category a:hover p {
+      .module-merch-category a:hover p,
+      .contact-buttons a {
         border-color: ' . $memberColor . ';
         color: ' . $memberColor . ';
       }
 
-      .button {
+      .button,
+      .contact-buttons a {
         box-shadow: 0 0 1em ' . $memberColor . ';
       }
 

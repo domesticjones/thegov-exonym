@@ -37,9 +37,9 @@
       $output .= $navWrapStart;
       while (have_rows($typeName, 'options')): the_row();
       if ($amount == 'all') {
-        ex_ContactLoopInner($type, $link, $typeLink);
+        $output .= ex_ContactLoopInner($type, $link, $typeLink);
       } elseif ($amount == 'global' && get_sub_field('global')) {
-        ex_ContactLoopInner($type, $link, $typeLink);
+        $output .= ex_ContactLoopInner($type, $link, $typeLink);
       }
       endwhile;
       $output .= $navWrapEnd;
@@ -49,7 +49,7 @@
 
   // Contact Lists
   function ex_contact($type, $link = true, $amount = 'all') {
-    if ($type == 'email') { if (have_rows('email_addresses', 'options')) { ex_ContactLoop($type, $link, $amount); } }
-    if ($type == 'phone') { if (have_rows('phone_numbers', 'options')) { ex_ContactLoop($type, $link, $amount); } }
+    if ($type == 'email') { if (have_rows('email_addresses', 'options')) { return ex_ContactLoop($type, $link, $amount); } }
+    if ($type == 'phone') { if (have_rows('phone_numbers', 'options')) { return ex_ContactLoop($type, $link, $amount); } }
     if ($type == 'address') { return get_field('address', 'options'); }
   }

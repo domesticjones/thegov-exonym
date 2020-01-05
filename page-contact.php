@@ -8,11 +8,13 @@
     get_header();
     echo '<article id="contact-template" class="page-content">';
         $fancyWords4hi = ['Getting to Know', 'Gettin\' Intimate wit', 'Showers of Words from'];
+        $fancyWords4contact = ['Touching', 'Relations', 'Contact', 'Correspondence', 'Milk Delivery', 'Conversations'];
 
         if(have_posts()): while(have_posts()): the_post();
             echo ex_wrap('start', 'contact-head');
                 echo '<h1>' . $fancyWords4hi[array_rand($fancyWords4hi)] . ' <span class="accent">' . ex_brand() . '</span></h1>';
                 the_field('bio');
+                echo '<div class="contact-buttons"><h2 class="accent"><span>Direct </span>' . $fancyWords4contact[array_rand($fancyWords4contact)] . '</h2>' . ex_contact('phone') . ex_contact('email') . '</div>';
             echo ex_wrap('end');
             $promo = get_field('promo_docs');
             if($promo) {
