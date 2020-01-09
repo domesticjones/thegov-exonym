@@ -27,7 +27,7 @@
   }
 
   nav {
-    @include grid(center, center, row, wrap);
+    @include grid(center, flex-end, row, wrap);
   }
 
   a {
@@ -49,7 +49,6 @@
 
   img {
     display: block;
-    border-radius: 50%;
     transform: scale(0.9);
     @include transition();
 

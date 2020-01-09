@@ -11,7 +11,9 @@
       .module-music-archive .button,
       blockquote:before,
       .module-merch-category a:hover p,
-      .contact-buttons a {
+      .contact-buttons a,
+      #video-tabs a.is-active,
+      #video-tabs.accent {
         border-color: ' . $memberColor . ';
         color: ' . $memberColor . ';
       }
@@ -22,12 +24,14 @@
       }
 
       #header,
+      #video-tabs a.is-active,
       .nav-responsive {
         background-color: ' . $memberColor . ';
         box-shadow: 0 0 1rem ' . $memberColor . ';
       }
 
-      #header .social-info {
+      #header .social-info,
+      .module-video-current .video-close:before {
         background-color: ' . $memberColor . ';
       }
 
