@@ -83,6 +83,11 @@ function cpt_performancesOrdering($query) {
 		$query->set('meta_key', 'date_start');
 		$query->set('order', 'DESC');
 	}
+
+
+    if(!is_admin() && $query->is_main_query() && is_post_type_archive('performance')) {
+      $query->set('posts_per_page', -1 );
+    }
 	return $query;
 }
 add_action('pre_get_posts', 'cpt_performancesOrdering');
