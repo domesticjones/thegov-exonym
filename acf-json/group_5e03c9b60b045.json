@@ -20,10 +20,10 @@
             "first_day": 1
         },
         {
-            "key": "field_5e03ca9764e40",
-            "label": "Track List",
-            "name": "track_list",
-            "type": "repeater",
+            "key": "field_5e17955b4a72e",
+            "label": "Tracks",
+            "name": "tracks",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -32,105 +32,17 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5e03caa464e41",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add Track",
-            "sub_fields": [
-                {
-                    "key": "field_5e03cc2264e45",
-                    "label": "Featured",
-                    "name": "featured",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "Featured Track",
-                    "default_value": 0,
-                    "ui": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
-                    "key": "field_5e03caa464e41",
-                    "label": "Name",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5e03caac64e42",
-                    "label": "Descriptor",
-                    "name": "descriptor",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5e03caba64e43",
-                    "label": "Length",
-                    "name": "length",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5e03cac864e44",
-                    "label": "Video",
-                    "name": "video",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                }
-            ]
+            "post_type": [
+                "song"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "id"
         },
         {
             "key": "field_5e03cc3964e46",
@@ -300,5 +212,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1578198309
+    "modified": 1578605241
 }

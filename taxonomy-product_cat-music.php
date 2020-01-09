@@ -27,6 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     $fancyWords4albums = ['Releases', 'Compendiums', 'Tomes', 'Disseminations', 'Promulgations', 'Expressions'];
     $fancyWords4info = ['Get This', 'Pick it Up', 'Get this Shit', 'Give a Listen', 'Learn More'];
+    $fancyWords4Swell = ['swell', 'beautiful', 'ambidextrous', 'potentially Shaquille O\'Neal approved', 'monstrous', 'harmonically perfect', 'gainfully employed'];
 
     $musicQueryArgs = array(
         'post_type'         => array( 'product' ),
@@ -55,10 +56,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                 $name = get_the_title();
                 $release = get_field('release_date');
                 $releaseDate = DateTime::createFromFormat('Ymd', $release);
-			    $tracks = get_field('track_list');
+			    $tracks = get_field('tracks');
 			    $trackCount = count($tracks);
-			    $featured = [];
-			    if($tracks) { foreach($tracks as $t) { if($t['featured']) { array_push($featured, '<li>' . $t['name'] . '</li>'); } } }
 			    sort($featured);
                 echo ex_wrap('start', 'music-archive');
                     echo '<a href="' . get_the_permalink($post->ID) . '">';
@@ -69,8 +68,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                         echo '<div class="data">';
                             echo '<h2>' . $name . '</h2>';
                             echo '<p class="accent">Released:<br />' . $releaseDate->format('F j, Y') . '</p>';
-                            if($featured) {
-                                echo '<p>Featuring:</p><ul>' . implode('', $featured) . '</ul><p>and ' . ($trackCount - count($featured)) . ' more tracks!</p>';
+                            if($trackCount > 1) {
+                                echo '<p>' . $trackCount . ' ' . $fancyWords4Swell[array_rand($fancyWords4Swell)] . ' tracks!</p>';
                             }
                             echo '<button class="button" type="button">' . $fancyWords4info[array_rand($fancyWords4info)] . '</button>';
                         echo '</div>';

@@ -74,15 +74,15 @@ if ( post_password_required() ) {
 		echo ex_wrap('end');
 		echo '<hr />';
 		echo ex_wrap('start', 'product-album-right');
-			$tracks = get_field('track_list');
+			$tracks = get_field('tracks');
 			if($tracks) {
 				echo '<ol class="tracklist">';
 					foreach($tracks as $t) {
-						$feat		= ($t['featured'] ? 'featured' : '');
-						$desc		= ($t['descriptor'] ? '<small>' . $t['descriptor'] . '</small>' : '');
-						$length	= ($t['length'] ? '<i>(' . $t['length'] . ')</i>' : '');
-						$video	= ($t['video'] ? '<a href="' . $t['video'] . '"><span>Watch the Music Video!</span></a>' : '');
-						echo '<li class="' . $feat . '"><p><span>' . $t['name'] . '</span>' . $length . '</p>' . $desc . $video . '</li>';
+					  $name   = get_the_title($t);
+                      $desc   = (get_field('subtitle', $t) ? '<small>' . get_field('subtitle', $t) . '</small>' : '');
+                      $length = (get_field('length', $t) ? '<i>(' . get_field('length', $t) . ')</i>' : '');
+                      $video  = (get_field('music_video', $t) ? '<a href="' . get_field('music_video', $t) . '"><span>Watch the Music Video!</span></a>' : '');
+                      echo '<li class="' . $feat . '"><p><span>' . $name . '</span>' . $length . '</p>' . $desc . $video . '</li>';
 					}
 				echo '</ol>';
 			}

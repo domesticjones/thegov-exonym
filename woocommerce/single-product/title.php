@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 echo ex_wrap('start', 'product-header');
 if(has_term('music', 'product_cat', $product->ID)) {
-  $tracks   = get_field('track_list');
+  $tracks   = get_field('tracks');
 	$dateRaw  = get_field('release_date');
 	$date 		= DateTime::createFromFormat('Ymd', $dateRaw);
   the_title( '<h1 class="product_title entry-title">', '</h1>' );

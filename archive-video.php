@@ -47,36 +47,25 @@
     // Music Videos
     $musicvidsArgs = array(
       'posts_per_page'    => -1,
-      'post_type'         => 'product',
+      'post_type'         => 'song',
     );
     $musicVidsQuery = new WP_Query($musicvidsArgs);
     if($musicVidsQuery->have_posts()): while($musicVidsQuery->have_posts()): $musicVidsQuery->the_post();
-      $tracks       = get_field('track_list');
-      $added        = get_the_date('Ymd');
-      $album        = get_the_title($post->ID);
-      $albumLink    = get_the_permalink($post->ID);
-      $release      = get_field('release_date');
-      $releaseMake  = DateTime::createFromFormat('Ymd', $release);
-      if($tracks) {
-        foreach($tracks as $t) {
-          if($t['video']) {
-            $name       = $t['name'];
-            $video      = parse_url(get_field('video', $post->ID, false)); parse_str($video['query'], $videoData);
-            $video      = parse_url($t['video']); parse_str($video['query'], $videoData);
-            $videoId    = $videoData['v'];
-            $title      = '<h2><span class="accent">From the ' . $releaseMake->format('Y') . ' album ' . $album . '</span> ' . $name . '</h2>';
-            $desc       = $title . '<p><em>Released on ' . $releaseMake->format('F j, Y') . '</em></p><a href="' . $albumLink . '"> Get ' . $album . '</a>';
-            if($videoId) {
-              array_push($vidsMusic, array(
-                'id'        => $videoId,
-                'name'      => $name,
-                'added'     => $added,
-                'release'   => $release,
-                'desc'      => $desc,
-              ));
-            }
-          }
-        }
+      $name     = get_the_title($t);
+      $added    = get_the_date('Ymd', $t);
+      $release  = get_the_date('F j, Y', $t);
+      $video    = parse_url(get_field('music_video', $t)); parse_str($video['query'], $videoData);
+      $videoId  = $videoData['v'];
+      $title    = '<h2><span class="accent">Music Video for:</span>' . $name . '</h2>';
+      $desc     = $title . '<p><em>Released on ' . $release . '</em></p>';
+      if($videoId) {
+        array_push($vidsMusic, array(
+          'id'        => $videoId,
+          'name'      => $name,
+          'added'     => $added,
+          'release'   => $added,
+          'desc'      => $desc, // TODO: Put expandable lyrics section here
+        ));
       }
     endwhile; endif;
     wp_reset_query();
@@ -99,13 +88,13 @@
         foreach($videos as $v) {
           if($v['video']) {
             $name       = $v['info']['song'];
-            $cameraDude = $v['info']['videographer'];
-            $notes      = $v['info']['notes'];
+            $cameraDude = ($v['info']['videographer'] ? $v['info']['videographer'] : 'Unknown');
+            $notes      = ($v['info']['notes'] ? ' &bull; ' . $v['info']['notes'] : null);
             $videoRaw   = get_post_meta($post->ID, 'videos_' . $i . '_video', false);
             $video      = parse_url($videoRaw[0]); parse_str($video['query'], $videoData);
             $videoId    = $videoData['v'];
             $title      = '<h2><span class="accent">Live on ' . $releaseMake->format('F j, Y') . ' </span>' . $name . '</h2>';
-            $desc       = $title . '<p><em>Performed at ' . performanceLocation($location)->name . ' in ' . performanceLocation($location, 'city') . '</em></p><p>Shot by: ' . $cameraDude . ' &bull; ' . $notes . '</p>';
+            $desc       = $title . '<p><em>Performed at ' . performanceLocation($location)->name . ' in ' . performanceLocation($location, 'city') . '</em></p><p>Shot by: ' . $cameraDude . $notes . '</p>';
             if($videoId) {
               array_push($vidsLive, array(
                 'id'        => $videoId,
@@ -159,7 +148,7 @@
 
       // Music Videos
       $vidsMusicSort = array_column($vidsMusic, 'release');
-      array_multisort($vidsMusicSort, SORT_DESC, $vidsMusic);
+      array_multisort($vidsMusicSort, SORT_ASC, $vidsMusic);
       echo '<ul id="vids-music">';
         foreach($vidsMusic as $vm) { echo gov_videoLoop($vm); }
       echo '</ul>';
