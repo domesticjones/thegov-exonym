@@ -79,7 +79,7 @@
                         while($livePhotosQuery->have_posts()): $livePhotosQuery->the_post();
                             $photos = get_field('photos');
                             foreach($photos as $p) {
-                                echo '<li><a href="' . $p['sizes']['jumbo'] . '" title="Photo by: ' . ($photo['caption'] ? $photo['caption'] : 'Unknown') . '">' . wp_get_attachment_image($p['ID']) . '</a></li>';
+                              echo '<li><a href="' . $p['sizes']['jumbo'] . '" title="Photo by: ' . ($p['description'] ? $p['description'] : 'Unknown') . '">' . wp_get_attachment_image($p['ID']) . '</a></li>';
                             }
                         endwhile;
                     echo '</ul>';

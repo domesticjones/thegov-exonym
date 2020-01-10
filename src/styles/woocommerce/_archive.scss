@@ -49,12 +49,10 @@
 
   img {
     display: block;
+    border-radius: 0.25rem;
     transform: scale(0.9);
     @include transition();
 
-    @include responsive(phablet) {
-      border-radius: 0%;
-    }
   }
 
   h3 {

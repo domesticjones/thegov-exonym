@@ -286,7 +286,7 @@
     width: calc(25% - 1em);
 
     img {
-      border-radius: 1em;
+      border-radius: 0.25rem;
     }
 
     @include responsive(phablet) {

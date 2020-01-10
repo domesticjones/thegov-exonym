@@ -113,7 +113,7 @@
 
     // Current Player
     echo ex_wrap('start', 'video-current');
-      $videoDefault = get_field('fallback_video', 'options');
+      $videoDefault = get_field('video_fallbacks', 'options')['nothing_playing'];
       echo '<div id="video-current-thumb"><img src="' . wp_get_attachment_image_url($videoDefault['ID'], 'medium') . '" class="default" /><span></span><button class="video-close accent"><span>Turn Off Video</span></button></div>';
       echo '<div class="video-current-data">';
         echo '<h1><span class="default">Watch Somethin\'</span><span class="active">Now Playing</span></h1>';
@@ -169,7 +169,8 @@
   echo '</aside>';
 
   echo '<aside id="video-player">';
-    echo '<div class="noise"></div>';
+    $static = get_field('video_fallbacks', 'options')['static'];
+    echo '<div class="noise" style="background-image: url(' . wp_get_attachment_image_url($static['ID'], 'jumbo') . ')"></div>';
     echo '<iframe id="video-daddy" src="about:blank" type="text/html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   echo '</aside>';
 

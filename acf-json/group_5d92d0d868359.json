@@ -63,9 +63,9 @@
         },
         {
             "key": "field_5e1291bcbd8ba",
-            "label": "Fallback Video",
-            "name": "fallback_video",
-            "type": "image",
+            "label": "Video Fallbacks",
+            "name": "video_fallbacks",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -74,16 +74,57 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "preview_size": "small",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_5e17db7d2a6ca",
+                    "label": "Nothing Playing",
+                    "name": "nothing_playing",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5e17dba82a6cb",
+                    "label": "Static",
+                    "name": "static",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
         },
         {
             "key": "field_5d92d2258e793",
@@ -253,5 +294,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1578275291
+    "modified": 1578621876
 }

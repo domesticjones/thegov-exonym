@@ -38,10 +38,26 @@ function ex_changeAddToCart() {
 add_filter('woocommerce_product_single_add_to_cart_text', 'ex_changeAddToCart');
 
 // Change Add to Cart Confirmation
-add_filter('wc_add_to_cart_message', 'handler_function_name', 10, 2);
 function handler_function_name($message, $product_id) {
 	$output = get_the_post_thumbnail($product_id, 'small');
 	$output .= '<p>You just added <strong>' . get_the_title($product_id) . '</strong> into your bag of shit!</p>';
-	$output .= '<nav><a href="' . get_permalink(wc_get_page_id('cart')) . '">Open My Bag of Shit & Pay!</a><a href="#dismiss" class="dismiss">Close This</a></nav>';
 	return $output;
 }
+add_filter('wc_add_to_cart_message', 'handler_function_name', 10, 2);
+
+// Change Remove from Cart Confirmation
+function ex_removeCartText($message, $cart_item) {
+	$product = wc_get_product($cart_item['product_id']);
+	if($product) {
+		$message = sprintf(__('<h2>Well damn...</h2>%s has been'), $product->get_name());
+	}
+	return $message;
+}
+add_filter('woocommerce_cart_item_removed_title', 'ex_removeCartText', 12, 2);
+function ex_removeCartButton($translation, $text, $domain) {
+	if($text === 'Undo?') {
+		$translation = __('Add it back?', $domain);
+	}
+	return $translation;
+}
+add_filter('gettext', 'ex_removeCartButton', 35, 3);

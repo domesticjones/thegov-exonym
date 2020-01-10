@@ -24,6 +24,10 @@
 							$datePretty = DateTime::createFromFormat('Y-m-d H:i:s', $dateEnd);
 							echo $datePretty->format('g:ia - l, F jS, Y');
 						}
+						if($date['gov_start']) {
+							$dateStart = DateTime::createFromFormat('Y-m-d H:i:s', $date['gov_start']);
+							echo '<h3>' . ex_brand() . ' starts at ' . $dateStart->format('h:i a') . '</h3>';
+						}
 					echo '</time>';
 					echo '<address>';
 						echo $location['address'];
@@ -44,7 +48,7 @@
 							if($admitAdv || $admitDoors) {
 								if($admitAdv === (string) '0') { $admitAdv = 'Free'; }
 								if($admitDoors === (string) '0') { $admitDoors = 'Free'; }
-								echo '<p class="cost"><strong>Cost: </strong>' . ($admitAdv ? $admitAdv . '/adv &bull; ' .$admitDoors . '/door' : $admitDoors) . '</p>';
+								echo '<p class="cost"><strong>Cost: </strong>' . ($admitAdv ? $admitAdv . '/adv &bull; ' .$admitDoors . '/door' : $admitDoors . ' to get in') . '</p>';
 							}
 							if(!empty($admitTickets)) {
 								echo '<a href="' . $admitTickets['url'] . '" class="tickets" target="' . $admitTickets['target'] . '">' . $admitTickets['title'] . '</a>';
@@ -92,7 +96,7 @@
 								echo '<li class="video">' . $video['video'] . '</li>';
 							}}
 							if($photos) { foreach($photos as $photo) {
-								echo '<li class="photo"><a href="' . $photo['sizes']['jumbo'] . '" title="Photo by: ' . ($photo['caption'] ? $photo['caption'] : 'Unknown') . '">' . wp_get_attachment_image($photo['id'], 'sizes-thumbnail') . '</a></li>';
+								echo '<li class="photo"><a href="' . $photo['sizes']['jumbo'] . '" title="Photo by: ' . ($photo['description'] ? $photo['description'] : 'Unknown') . '">' . wp_get_attachment_image($photo['id'], 'thumbnail') . '</a></li>';
 							}}
 						echo '</ul>';
 					}

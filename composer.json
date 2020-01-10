@@ -29,6 +29,7 @@
     "wpackagist-plugin/favicon-by-realfavicongenerator": "*",
     "wpackagist-plugin/woocommerce": "*",
     "wpackagist-plugin/ari-fancy-lightbox": "*",
+    "wpackagist-plugin/wp-sweep": "*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }
