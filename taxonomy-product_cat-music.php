@@ -29,6 +29,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     $fancyWords4info = ['Get This', 'Pick it Up', 'Get this Shit', 'Give a Listen', 'Learn More'];
     $fancyWords4Swell = ['swell', 'beautiful', 'ambidextrous', 'potentially Shaquille O\'Neal approved', 'monstrous', 'harmonically perfect', 'gainfully employed'];
 
+    $allSongsGet = get_posts(array('post_type' => 'song', 'posts_per_page' => -1));
+    $allSongs = [];
+    foreach($allSongsGet as $s) {
+      array_push($allSongs, get_the_title($s->ID));
+    }
+
     $musicQueryArgs = array(
         'post_type'         => array( 'product' ),
         'posts_per_page'    => -1,
@@ -44,39 +50,54 @@ if ( ! defined( 'ABSPATH' ) ) {
         'order'     => 'DESC',
     );
     $musicQuery = new WP_Query($musicQueryArgs);
+    $albumSongs = [];
     if($musicQuery->have_posts()) {
-        echo '<article id="music-template" class="page-content">';
-            echo ex_wrap('start', 'music-heading');
-                echo '<h1>' . $fancyWords4albums[array_rand($fancyWords4albums)] . ' by <span class="accent">' . ex_brand() . '</span></h1>';
-            echo ex_wrap('end');
-            while($musicQuery->have_posts()) {
-                $musicQuery->the_post();
-                $cover      = get_the_post_thumbnail($post->ID, 'medium');
-                $coverUrl   = get_the_post_thumbnail_url($post->ID, 'medium');
-                $name = get_the_title();
-                $release = get_field('release_date');
-                $releaseDate = DateTime::createFromFormat('Ymd', $release);
-			    $tracks = get_field('tracks');
-			    $trackCount = count($tracks);
-			    sort($featured);
-                echo ex_wrap('start', 'music-archive');
-                    echo '<a href="' . get_the_permalink($post->ID) . '">';
-                        echo '<div class="photo">';
-                            echo '<div class="photo-bg" style="background-image: url(' . $coverUrl . ')"></div>';
-                            echo $cover;
-                        echo '</div>';
-                        echo '<div class="data">';
-                            echo '<h2>' . $name . '</h2>';
-                            echo '<p class="accent">Released:<br />' . $releaseDate->format('F j, Y') . '</p>';
-                            if($trackCount > 1) {
-                                echo '<p>' . $trackCount . ' ' . $fancyWords4Swell[array_rand($fancyWords4Swell)] . ' tracks!</p>';
-                            }
-                            echo '<button class="button" type="button">' . $fancyWords4info[array_rand($fancyWords4info)] . '</button>';
-                        echo '</div>';
-                    echo '</a>';
-                echo ex_wrap('end');
-            }
-        echo '</article>';
+      echo '<article id="music-template" class="page-content">';
+        echo ex_wrap('start', 'music-heading');
+          echo '<h1>' . $fancyWords4albums[array_rand($fancyWords4albums)] . ' by <span class="accent">' . ex_brand() . '</span></h1>';
+        echo ex_wrap('end');
+        while($musicQuery->have_posts()) {
+          $musicQuery->the_post();
+          $cover        = get_the_post_thumbnail($post->ID, 'medium');
+          $coverUrl     = get_the_post_thumbnail_url($post->ID, 'medium');
+          $name         = get_the_title();
+          $release      = get_field('release_date');
+          $releaseDate  = DateTime::createFromFormat('Ymd', $release);
+          $tracks       = get_field('tracks');
+          $trackCount   = count($tracks);
+          echo ex_wrap('start', 'music-archive');
+            echo '<a href="' . get_the_permalink($post->ID) . '">';
+              echo '<div class="photo">';
+                echo '<div class="photo-bg" style="background-image: url(' . $coverUrl . ')"></div>';
+                echo $cover;
+              echo '</div>';
+              echo '<div class="data">';
+                echo '<h2>' . $name . '</h2>';
+                echo '<p class="accent">Released:<br />' . $releaseDate->format('F j, Y') . '</p>';
+                if($tracks) { foreach ($tracks as $t) { array_push($albumSongs, get_the_title($t)); }}
+                if($trackCount > 1) {
+                  echo '<p>' . $trackCount . ' ' . $fancyWords4Swell[array_rand($fancyWords4Swell)] . ' tracks!</p>';
+                }
+                echo '<button class="button" type="button">' . $fancyWords4info[array_rand($fancyWords4info)] . '</button>';
+              echo '</div>';
+            echo '</a>';
+          echo ex_wrap('end');
+        }
+
+        $songsUnreleased = array_diff($allSongs, $albumSongs);
+        sort($songsUnreleased);
+        if(count($songsUnreleased) > 0) {
+          echo ex_wrap('start', 'music-unreleased');
+            echo '<h1><span class="accent">' . ex_brand() . ':</span> Unreleased Songs</h1>';
+            echo '<ul>';
+              foreach($songsUnreleased as $su) {
+                echo '<li>' . $su . '</li>';
+              }
+            echo '</ul>';
+          echo ex_wrap('end');
+        }
+
+      echo '</article>';
     }
     wp_reset_postdata();
 

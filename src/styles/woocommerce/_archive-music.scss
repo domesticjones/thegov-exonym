@@ -145,3 +145,33 @@
     }
   }
 }
+
+.module-music-unreleased {
+  text-align: center;
+
+  @include responsive(phablet) {
+    h1 {
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+  }
+
+  ul {
+    @include listStripped();
+    column-count: 3;
+    font-weight: $font-light;
+
+    @include responsive(tablet) {
+      column-count: 2;
+    }
+
+    li {
+      transform: scale(0.9);
+      @include transition();
+
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+}

@@ -92,7 +92,7 @@
 								echo '<li class="video">' . $video['video'] . '</li>';
 							}}
 							if($photos) { foreach($photos as $photo) {
-								echo '<li class="photo"><a href="' . $photo['sizes']['jumbo'] . '">' . wp_get_attachment_image($photo['id'], 'sizes-thumbnail') . '</a></li>';
+								echo '<li class="photo"><a href="' . $photo['sizes']['jumbo'] . '" title="Photo by: ' . ($photo['caption'] ? $photo['caption'] : 'Unknown') . '">' . wp_get_attachment_image($photo['id'], 'sizes-thumbnail') . '</a></li>';
 							}}
 						echo '</ul>';
 					}

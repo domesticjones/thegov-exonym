@@ -75,3 +75,13 @@
   width: 100%;
   height: auto;
 }
+
+.fancybox-container {
+  font-family: $font-deco !important;
+}
+
+.fancybox-caption {
+  text-align: center;
+  border: none !important;
+  font-size: 1.5em !important;
+}
