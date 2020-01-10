@@ -1,4 +1,5 @@
 <?php
-    $id = get_the_id();
-    wp_safe_redirect(get_post_type_archive_link('video') . '?viewing=' . get_post_field('post_name', $id));
+  $video    = parse_url(get_field('video', $post->ID, false)); parse_str($video['query'], $videoData);
+  $videoId  = $videoData['v'];
+  wp_safe_redirect(get_post_type_archive_link('video') . '#' . $videoId);
 ?>

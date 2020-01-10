@@ -19,13 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 echo ex_wrap('start', 'product-header');
-if(has_term('music', 'product_cat', $product->ID)) {
-  $tracks   = get_field('tracks');
-	$dateRaw  = get_field('release_date');
-	$date 		= DateTime::createFromFormat('Ymd', $dateRaw);
-  the_title( '<h1 class="product_title entry-title">', '</h1>' );
-	echo '<p class="music-header-meta">Released on ' . $date->format('M. j, Y') . ' &bull; ' . count($tracks) . ' Tracks</p>';
-} else {
-  the_title( '<h1 class="product_title entry-title">', '</h1>' );
-}
+  if(has_term('music', 'product_cat', $product->ID)) {
+    $tracks   = get_field('tracks');
+    $dateRaw  = get_field('release_date');
+    $date 		= DateTime::createFromFormat('Ymd', $dateRaw);
+    the_title( '<h1 class="product_title entry-title">', '</h1>' );
+    echo '<p class="music-header-meta">Released on ' . $date->format('M. j, Y') . ' &bull; ' . count($tracks) . ' Tracks</p>';
+  } else {
+    the_title( '<h1 class="product_title entry-title">', '</h1>' );
+    the_content();
+  }
 echo ex_wrap('end');

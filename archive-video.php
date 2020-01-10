@@ -148,7 +148,7 @@
 
       // Music Videos
       $vidsMusicSort = array_column($vidsMusic, 'release');
-      array_multisort($vidsMusicSort, SORT_ASC, $vidsMusic);
+      array_multisort($vidsMusicSort, SORT_DESC, $vidsMusic);
       echo '<ul id="vids-music">';
         foreach($vidsMusic as $vm) { echo gov_videoLoop($vm); }
       echo '</ul>';

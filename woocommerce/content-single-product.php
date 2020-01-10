@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<article id="music-<?php the_ID(); ?>" <?php wc_product_class('page-content music', $product); ?>>
+<article id="product-<?php the_ID(); ?>" <?php wc_product_class('page-content product', $product); ?>>
 	<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.
@@ -45,47 +45,9 @@ if ( post_password_required() ) {
 		 * @hooked woocommerce_template_single_sharing - 50
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
-		//do_action( 'woocommerce_single_product_summary' );
 
-		woocommerce_template_single_title();
-
-		echo ex_wrap('start', 'product-album-left');
-			the_content();
-			$credits = get_field('credits');
-			if(!empty($credits)) {
-				echo '<ul class="product-single-list">';
-					$prod   = ($credits['producer'] ? '<li><i>Produced by:</i><span>' . $credits['producer'] . '</span></li>' : '');
-					$mix    = ($credits['mix'] ? '<li><i>Mixed by:</i><span>' . $credits['mix'] . '</span></li>' : '');
-					$master	= ($credits['master'] ? '<li><i>Mastered by:</i><span>' . $credits['master'] . '</span></li>' : '');
-					echo $prod . $mix . $master;
-				echo '</ul>';
-			}
-			$stream = get_field('streaming_services');
-			if($stream) {
-				echo '<ul class="product-single-list">';
-					echo '<li class="product-single-list-heading">Streaming Services</li>';
-					foreach($stream as $s) {
-						echo '<li><a href="' . $s['link']['url'] . '" target="' . $s['link']['target'] . '" class="product-single-stream"><img src="' . $s['icon']['url'] . '" alt="' . $s['icon']['alt'] . '" />' . $s['link']['title'] . '</a></li>';
-					}
-				echo '</ul>';
-			}
-			woocommerce_template_single_price();
-			woocommerce_template_single_add_to_cart();
-		echo ex_wrap('end');
-		echo '<hr />';
-		echo ex_wrap('start', 'product-album-right');
-			$tracks = get_field('tracks');
-			if($tracks) {
-				echo '<ol class="tracklist">';
-					foreach($tracks as $t) {
-					  $name   = get_the_title($t);
-                      $desc   = (get_field('subtitle', $t) ? '<small>' . get_field('subtitle', $t) . '</small>' : '');
-                      $length = (get_field('length', $t) ? '<i>(' . get_field('length', $t) . ')</i>' : '');
-                      $video  = (get_field('music_video', $t) ? '<a href="' . get_field('music_video', $t) . '"><span>Watch the Music Video!</span></a>' : '');
-                      echo '<li class="' . $feat . '"><p><span>' . $name . '</span>' . $length . '</p>' . $desc . $video . '</li>';
-					}
-				echo '</ol>';
-			}
+		echo ex_wrap('start', 'product-data');
+		  do_action( 'woocommerce_single_product_summary' );
 		echo ex_wrap('end');
 	?>
 </article>

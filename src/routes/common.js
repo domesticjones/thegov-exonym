@@ -58,6 +58,7 @@ export default {
   		});
   	});
 
+
     // PRODUCT: Transmute Product Variable Selects into Radio Buttons
     const $prodSelectCheck = $('#product-select-flag');
     if($prodSelectCheck.length > 0) {
@@ -69,13 +70,13 @@ export default {
         let attrs = [`<li class="product-attrs-heading">Choose a ${valLabel}</li>`];
         $this.find('option').each((c,o) => {
           const $that = $(o).val();
-          const thatLow = $that.replace(/\s+/g, '-').toLowerCase();
+          const $thatName = $(o).text();
           let thatActive = '';
           if($that == val) {
             thatActive = 'is-active';
           }
           if($that.length > 0) {
-            attrs.push(`<li><label class="${thatActive}" data-target="${id}">${$that}</label></li>`);
+            attrs.push(`<li><label class="${thatActive}" data-target="${id}" data-choice="${$that}">${$thatName}</label></li>`);
           }
         });
         $prodSelectCheck.append(`<ul class="product-attrs-buttons">${attrs.join('')}</ul>`);
@@ -83,8 +84,8 @@ export default {
       $($prodSelectCheck).find('label').on('click', (e) => {
         const $event = $(e.currentTarget);
         const target = $event.data('target');
-        const eValue = $event.text();
-        $(`#${target}`).val(eValue).trigger('change');
+        const choice = $event.data('choice');
+        $(`#${target}`).val(choice).trigger('change');
         $event.closest('ul').find('label').removeClass('is-active');
         $event.addClass('is-active');
       });
