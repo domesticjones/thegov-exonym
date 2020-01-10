@@ -14,7 +14,7 @@ $fh-border-style: solid !default;
 $fh-border-color: transparentize($fh-font-color, 0.666) !default;
 
 // Inputs, Textareas, Select, Option
-$fh-input-height: 2.5em !default;
+$fh-input-height: auto !default;
 $fh-input-width: 100% !default;
 $fh-input-max-width: auto !default;
 $fh-input-bg-color: $white !default;
@@ -29,15 +29,15 @@ $fh-allow-select-vendor-styling: false !default;
 $fh-fieldset-bare: true !default;
 
 // Buttons & Input Submits
-$fh-button-border-radius: 0.5em;
+$fh-button-border-radius: 0.25rem;
 $fh-button-height: $fh-input-height !default;
 $fh-button-width: auto !default;
 $fh-button-max-width: auto !default;
 $fh-button-font-color: $white !default;
-$fh-button-bg-color: $blue !default;
-$fh-button-hover-bg-color: darken($fh-button-bg-color, 6.666%) !default;
+$fh-button-bg-color: transparent !default;
+$fh-button-hover-bg-color: transparent !default;
 $fh-button-hover-font-color: $fh-button-font-color !default;
-$fh-button-border-width: 2px;
+$fh-button-border-width: 1px;
 $fh-button-border-style: solid;
 $fh-button-border-color: $fh-button-font-color;
 $fh-button-hover-border-color: $fh-button-hover-font-color;
@@ -302,4 +302,5 @@ input[type="reset"]:focus {
   background-color: $fh-button-hover-bg-color;
   color: $fh-button-hover-font-color;
   border-color: $fh-button-hover-border-color;
+  outline: none;
 }

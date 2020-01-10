@@ -73,17 +73,24 @@
             );
             $livePhotosQuery = new WP_Query($livePhotosArgs);
             if($livePhotosQuery->have_posts()):
-                echo ex_wrap('start', 'contact-photos');
-                    echo '<h2 class="accent">' . ex_brand() . ': <span>Ocular Titillation</span></h2>';
-                    echo '<ul>';
-                        while($livePhotosQuery->have_posts()): $livePhotosQuery->the_post();
-                            $photos = get_field('photos');
-                            foreach($photos as $p) {
-                              echo '<li><a href="' . $p['sizes']['jumbo'] . '" title="Photo by: ' . ($p['description'] ? $p['description'] : 'Unknown') . '">' . wp_get_attachment_image($p['ID']) . '</a></li>';
-                            }
-                        endwhile;
-                    echo '</ul>';
-                echo ex_wrap('end');
+              echo ex_wrap('start', 'contact-photos');
+                echo '<h2 class="accent">' . ex_brand() . ': <span>Ocular Titillation</span></h2>';
+                echo '<ul id="photos-list">';
+                  $livePics = [];
+                  while($livePhotosQuery->have_posts()): $livePhotosQuery->the_post();
+                    $date = get_field('date');
+        						$datePretty = DateTime::createFromFormat('Y-m-d H:i:s', $date['start']);
+                    $photos = get_field('photos');
+                    foreach($photos as $p) {
+                      $photo = '<li><a href="' . $p['sizes']['jumbo'] . '" title="Photo by: ' . ($p['description'] ? $p['description'] : 'Unknown') . ' - ' . $datePretty->format('F j, Y') . '" data-image=\'' . wp_get_attachment_image($p['ID']) . '\'></a></li>';
+                      array_push($livePics, $photo);
+                    }
+                  endwhile;
+                  shuffle($livePics);
+                  echo implode('', $livePics);
+                  echo '<button type="button" id="photos-list-more">Gimme More</button>';
+                echo '</ul>';
+              echo ex_wrap('end');
             endif;
             wp_reset_query();
         endwhile; endif;

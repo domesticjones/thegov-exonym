@@ -298,3 +298,21 @@
     }
   }
 }
+
+#photos-list-more {
+  margin: 2rem;
+  font-weight: $font-light;
+  border: 1px solid $white;
+  padding: 1em 1.75em;
+  height: auto;
+  box-shadow: 0 0 1rem $white;
+  transform: scale(0.9);
+
+  &:hover {
+    transform: scale(1);
+  }
+
+  &.is-done {
+    display: none;
+  }
+}
