@@ -52,21 +52,18 @@
     border-radius: 0.25rem;
     transform: scale(0.9);
     @include transition();
-
   }
 
   h3 {
     width: 100%;
     text-align: center;
+    font-size: 1.15em;
     padding: 0;
     margin: 0 0 0.5em 0;
     line-height: 1;
     color: $white;
     font-family: $font-default;
-
-    @include responsive(phablet) {
-      font-size: 1.5em;
-    }
+    font-weight: $font-normal;
   }
 
   p {

@@ -2,10 +2,12 @@
 if (!defined('WPINC')) { die; }
 
   // Module Content Wrapper
-  function ex_wrap($pos, $name = null) {
+  function ex_wrap($pos, $id = null, $name = null, $accent = null) {
     $output = '';
     if($pos == 'start') {
-      $output .= '<section id="' . $name . '" class="module module-' . $name . '">';
+      if($name) { $namePrint = ' data-section-name="' . $name . '"'; }
+      if($accent) { $accentPrint = ' data-section-color="' . $accent . '"'; }
+      $output .= '<section id="' . $id . '" class="module module-' . $id . '"' . $namePrint . $accentPrint . '>';
     } elseif($pos == 'end') {
       $output .= '</section>';
     }

@@ -7,6 +7,11 @@
       $output .= '<p class="release">' . substr($v['release'], 0, 4) . '</p>';
       $output .= '<div class="video-desc">' . $v['desc'] . '</div>';
     $output .= '</li>';
+    $output .= '<li class="video-mobile"><a href="https://www.youtube.com/watch?v=' . $v['id'] . '">';
+      $output .= '<img src="https://img.youtube.com/vi/' . $v['id'] . '/hqdefault.jpg" alt="Video Preview Thumbnail for ' . $v['name'] . '" />';
+      $output .= '<h3>' . $v['name'] . '</h3>';
+      $output .= '<p class="release">' . substr($v['release'], 0, 4) . '</p>';
+    $output .= '</a></li>';
     return $output;
   }
 

@@ -1,5 +1,10 @@
 #wrap-home {
   width: 100%;
+
+  .module {
+    @include grid(center, stretch);
+    overflow: hidden;
+  }
 }
 
 #landing-video {
@@ -11,4 +16,24 @@
   width: auto;
   height: auto;
   transform: translate(-50%, -50%);
+}
+
+.home-bgvideo-wrap {
+  width: 50%;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.home-bgvideo {
+  display: block;
+  position: absolute;
+  min-width: 100%;
+  height: 100vh;
+  left: 0;
+  bottom: 0;
+}
+
+.home-section-content {
+  width: 50%;
 }

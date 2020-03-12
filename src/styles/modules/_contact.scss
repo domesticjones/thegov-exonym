@@ -316,3 +316,40 @@
     display: none;
   }
 }
+
+.fancybox-container {
+  backdrop-filter: blur(0.5em);
+  background-color: transparentize($black, 0.5);
+}
+
+.fancybox-image {
+  box-shadow: 0 0 1em $black;
+}
+
+.fancybox-navigation {
+  button {
+    color: #000;
+
+    &:hover { color: #000; }
+
+    &::before {
+      background: #fff !important;
+      border-radius: 0.25rem;
+    }
+  }
+}
+
+.fancybox-toolbar {
+  .fancybox-button {
+    background: $white;
+    color: $black;
+    border-radius: 0.25rem;
+    transform: scale(0.9);
+    @include transition();
+
+    &:hover {
+      color: $black;
+      transform: scale(1);
+    }
+  }
+}

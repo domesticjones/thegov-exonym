@@ -11,6 +11,10 @@
   overflow: hidden;
   box-shadow: 0 0  $black;
 
+  @include responsive(tablet-wide) {
+    display: none;
+  }
+
   &.is-active {
     transform: translateY(-50%) scale(1);
     border-radius: 0%;
@@ -65,6 +69,13 @@
   left: 0;
   z-index: 2;
   padding: 6rem 4rem 0 4rem;
+
+  @include responsive(tablet) {
+    padding: 0;
+    width: 100%;
+    height: auto;
+    position: static;
+  }
 
   h1 {
     margin-bottom: 0.5em;
@@ -163,11 +174,19 @@
 #video-current-thumb {
   width: 40%;
   position: relative;
+
+  @include responsive(tablet) {
+    display: none;
+  }
 }
 
 .video-current-data {
   width: 60%;
   padding-left: 1rem;
+
+  @include responsive(tablet) {
+    display: none;
+  }
 }
 
 #video-tabs {
@@ -176,6 +195,7 @@
   font-size: 1em;
   border-top: 1px solid $white;
   margin-top: 2rem;
+  padding-bottom: 1rem;
 
   @include pseudo(after, block, absolute) {
     top: 100%;
@@ -185,12 +205,29 @@
     @include gradient(linear, to bottom, '#{$black}, transparent');
   }
 
+  @include responsive(desktop) {
+    font-size: 0.85em;
+  }
+
+  @include responsive(tablet) {
+    border-top: none;
+    border-bottom: 1px solid $white;
+  }
+
+  @include responsive(phablet) {
+    @include grid(center, center, row, wrap);
+  }
+
   a,
   p {
     display: block;
     text-align: center;
     padding: 0.5em 1em;
-    margin: 1em 0.5em;
+    margin: 0.5em;
+
+    @include responsive(phablet) {
+      margin: 0.25em;
+    }
   }
 
   a {
@@ -220,18 +257,27 @@
     span {
       color: $white;
     }
+
+    @include responsive(phablet) {
+      width: 100%;
+    }
   }
 }
 
 .module-video-lists {
   padding-top: calc(50vh - 6vw + 2rem);
 
+  @include responsive(tablet) {
+    padding-top: 0;
+  }
+
   ul {
     @include listStripped();
+    width: 100%;
     display: none;
 
     &.is-active {
-      @include grid(flex-start, center, row, wrap);
+      @include grid(flex-start, flex-start, row, wrap);
     }
 
     li {
@@ -241,6 +287,18 @@
       cursor: pointer;
       transform: scale(0.9);
       @include transition();
+
+      @include responsive(desktop-wide) {
+        width: 33.3333%;
+      }
+
+      @include responsive(tablet) {
+        width: 50%;
+      }
+
+      @include responsive(phablet) {
+        width: 100%;
+      }
 
       &:hover {
         transform: scale(1);
@@ -254,8 +312,9 @@
   }
 
   h3 {
-    font-size: 1.25em;
+    font-size: 1.15em;
     font-family: $font-default;
+    font-weight: $font-normal;
     margin-bottom: 0;
   }
 
@@ -267,5 +326,31 @@
 
   .video-desc {
     display: none;
+  }
+
+  .video-mobile {
+    display: none;
+    margin: 0;
+
+    a {
+      display: block;
+      border: none;
+      width: 100%;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    @include responsive(tablet) {
+      display: block;
+    }
+  }
+
+  @include responsive(tablet) {
+    .video-control {
+      display: none;
+    }
   }
 }
