@@ -62,6 +62,7 @@
   box-shadow: 0 0 1rem $white;
   padding: 1rem 2rem;
   @include linkColor($black);
+  @include transition(all 500ms ease);
 
   @include responsive(tablet) {
     display: none;

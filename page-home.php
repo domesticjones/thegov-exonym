@@ -15,7 +15,7 @@
 					array_push($mOutput, array($m['assign'], $m['color']));
 				}
 				foreach($mOutput as $mo) {
-					$pre = '.acc' . $mo[0];
+					$pre = '.accActive' . $mo[0];
 					$color = $mo[1];
 					foreach($mAttrs as $ma) {
 						echo $pre . ' .acc' . $ma[0] . '{' . $ma[1] . ': ' . $color . ';}';
@@ -25,6 +25,15 @@
 		echo '</style>';
 	}
 	add_action('wp_head', 'gov_color', 100);
+
+	function govHomeVideo($video) {
+		$output = '<aside class="home-bgvideo-wrap">';
+			$output .= '<video class="home-bgvideo" autoplay muted playsinline loop>';
+				$output .= '<source type="' . $video['mime_type'] . '" data-realvideo="' . $video['url'] . '">';
+			$output .= '</video>';
+		$output .= '</aside>';
+		return $output;
+	}
 
 	get_header();
     echo '<article id="wrap-home">';

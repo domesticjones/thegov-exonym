@@ -16,13 +16,22 @@ export default {
           curPlayer[0].load();
           curPlayer[0].play();
         }
-        const curAccent = cur.data('data-section-color');
-        if(curAccent && curAccent.length > 0) {
-
+        const curHex = cur.data('section-hex');
+        const curAccent = cur.data('section-color');
+        const colorDefault = '#f2f2f2';
+        const shadowDefault = '0 0 1rem';
+        const coloring = [
+          '#header',
+          '#header .social-info',
+        ];
+        const colorSet = coloring.join(', ');
+        if(curHex && curHex.length > 0) {
+          $(colorSet).css({'background-color': curHex, 'box-shadow': `${shadowDefault} ${curHex}`});
+        } else {
+          $(colorSet).css({'background-color': colorDefault, 'box-shadow': `${shadowDefault} ${colorDefault}`});
         }
       },
     });
-
   },
   finalize() {
   },
