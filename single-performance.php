@@ -1,7 +1,7 @@
 <?php
 	get_header();
 		if(have_posts()) { while(have_posts()) { the_post();
-	    $dateNow    = date('Y-m-d H:i:s');
+	    $dateNow    = current_time('Y-m-d H:i:s');
 	    $date       = get_field('date');
 	    $dateEnd    = ($date['end'] ? $date['end'] : $date['start']);
 	    $dateText   = ($dateEnd <= $dateNow ? 'Past' : 'Upcoming');

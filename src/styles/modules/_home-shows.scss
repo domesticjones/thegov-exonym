@@ -1,0 +1,4 @@
+.home-section-content {
+  @include grid(center, center, column);
+  padding: 5rem 0;
+}

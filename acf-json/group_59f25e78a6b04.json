@@ -595,6 +595,31 @@
             "button_label": "Add Member",
             "sub_fields": [
                 {
+                    "key": "field_5e01bce796bc6",
+                    "label": "Assign",
+                    "name": "assign",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Merch": "Merch",
+                        "Shows": "Shows",
+                        "Albums": "Albums",
+                        "Videos": "Videos",
+                        "Contact": "Contact"
+                    },
+                    "allow_null": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value"
+                },
+                {
                     "key": "field_5e01c381f175e",
                     "label": "Color",
                     "name": "color",
@@ -629,6 +654,30 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_5e7fb21cef3ab",
+                    "label": "Short Video Image",
+                    "name": "short_video_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "small",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
                     "key": "field_5e01bcaa96bc5",
                     "label": "Long Video",
                     "name": "long_video",
@@ -648,10 +697,10 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5e01bce796bc6",
-                    "label": "Assign",
-                    "name": "assign",
-                    "type": "button_group",
+                    "key": "field_5e7fb229ef3ac",
+                    "label": "Long Video Image",
+                    "name": "long_video_image",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -660,17 +709,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "Merch": "Merch",
-                        "Shows": "Shows",
-                        "Albums": "Albums",
-                        "Videos": "Videos",
-                        "Contact": "Contact"
-                    },
-                    "allow_null": 0,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "return_format": "array",
+                    "preview_size": "small",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         }
@@ -692,5 +740,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1577173918
+    "modified": 1585428062
 }

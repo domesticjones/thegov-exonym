@@ -35,6 +35,14 @@
 		return $output;
 	}
 
+	function govHomeSection($heading, $content) {
+		$output = '<div class="home-section-content">';
+			$output .= '<h1 class="home-heading">' . $heading . '</h1>';
+			$output .= '<div class="home-content">' . $content . '</div>';
+		$output .= '</div>';
+		return $output;
+	}
+
 	get_header();
     echo '<article id="wrap-home">';
   		if(have_posts()) { while(have_posts()) { the_post();

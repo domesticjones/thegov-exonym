@@ -177,3 +177,19 @@ function performanceLocation($place, $type = null) {
         return 'No location info.';
     }
 }
+
+// Find out how far out the show is
+function perfDistance($date1, $date2) {
+	$daySecs = 86400;
+  $diff = strtotime($date2) - strtotime($date1);
+  $diffDays = (int) abs(round($diff / $daySecs));
+	$output = '';
+	if($diffDays === 1) {
+		$output = 'Tomorrow!';
+	} elseif($diffDays === 0) {
+		$output = 'Today!';
+	} elseif($diffDays > 1) {
+		$output = $diffDays . ' days from now';
+	}
+	return $output;
+}

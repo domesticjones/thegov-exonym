@@ -8,7 +8,7 @@
   get_header();
     echo '<article id="performance-archive" class="page-content">';
 
-    $dateNow = (int) date('YmdHis');
+    $dateNow = (int) current_time('YmdHis');
     $fancyWords4shows = ['Performances', 'Shindigs', 'Discharges', 'Doings', 'Demonstrations', 'Feats', 'Triumphs', 'Executions', 'Conquests'];
     $fancyWords4info = ['More Info', 'Tell Me More', 'Gimme Them Deets', 'Comprehensive Data', 'The Full Situation', 'More Fuckin Info'];
 
