@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								the_post_thumbnail('small');
 
 								the_title('<h3>', '</h3>');
-								echo '<p>'. $fancyWords4buy[array_rand($fancyWords4buy)] . '&bull;' . $priceNice . '</p>';
+								echo '<p>'. $fancyWords4buy[array_rand($fancyWords4buy)] . ' &bull;' . $priceNice . '</p>';
               echo '</a>';
             }
             echo '</nav>';

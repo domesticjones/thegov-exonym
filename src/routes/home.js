@@ -2,6 +2,9 @@ import $ from 'jquery';
 window.jQuery = $;
 require('jquery-scrollify');
 
+// TODO: Pause videos on section change
+// TODO: Find way to async waterfall loading the videos
+
 export default {
   init() {
     $.scrollify({
