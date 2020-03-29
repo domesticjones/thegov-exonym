@@ -3,13 +3,17 @@ window.jQuery = $;
 
 export default {
   init() {
-  },
-  finalize() {
     // MODULE: Video Toggle
-    $('.video-control').click(e => {
+    $('.video-control').on('click', e => {
       $('#member-video').get(0).pause();
       const $this = $(e.currentTarget);
       const id = $this.attr('id');
+      if ('URLSearchParams' in window) {
+        let videoGo = new URLSearchParams(window.location.search)
+        videoGo.set('watch', id);
+        const newRelativePathQuery = window.location.pathname + '?' + videoGo.toString();
+        history.pushState(null, '', newRelativePathQuery);
+      }
       const thumb = $this.find('img').clone();
       const desc = $this.find('.video-desc').clone();
       $('#video-current-thumb span').html(thumb);
@@ -37,5 +41,13 @@ export default {
       $this.addClass('is-active');
       $(target).addClass('is-active');
     });
+  },
+  finalize() {
+    // Find Video on Load
+    const videoLoad = new URLSearchParams(window.location.search);
+    if(videoLoad) {
+      const vidTarget = videoLoad.get('watch');
+      $(`#${vidTarget}`).click();
+    }
   },
 };

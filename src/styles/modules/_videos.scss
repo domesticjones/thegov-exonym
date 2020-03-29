@@ -271,6 +271,10 @@
     padding-top: 0;
   }
 
+  img {
+    transform-origin: bottom;    @include transition();
+  }
+
   ul {
     @include listStripped();
     width: 100%;
@@ -301,7 +305,14 @@
       }
 
       &:hover {
-        transform: scale(1);
+
+        img {
+          transform: scale(1.15);
+        }
+
+        p.release {
+          opacity: 1;
+        }
       }
 
       &.is-active {
@@ -322,6 +333,7 @@
     padding: 0;
     font-size: 0.85em;
     opacity: 0.5;
+    @include transition();
   }
 
   .video-desc {

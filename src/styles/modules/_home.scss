@@ -46,4 +46,6 @@
   background-color: transparent !important;
   line-height: 1.5;
   height: auto;
+  border: 1px solid $white;
+  @include transition();
 }

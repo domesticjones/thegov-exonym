@@ -28,6 +28,7 @@ export default {
           '.home-heading',
           '.home-heading span',
           '.home-cta',
+          '.home-vids-list .release',
         ];
         const colorSet = coloring.join(', ');
         if(curHex && curHex.length > 0) {

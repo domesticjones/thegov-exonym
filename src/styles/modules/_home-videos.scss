@@ -1,0 +1,55 @@
+.home-vids-list {
+  @include grid(center, center, row, wrap);
+
+  .video-single {
+    width: 25%;
+    display: block;
+    border: none;
+    text-align: center;
+    transform: scale(0.9);
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+
+      .release {
+        @include filter-grayscale(0%);
+        opacity: 1;
+      }
+    }
+  }
+
+  .home-cta {
+    line-height: 1;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  h2 {
+    font-family: $font-default;
+    font-size: 1.15em;
+    @include fontBold(false);
+    margin-bottom: 0;
+    padding-top: 0.25em;
+  }
+
+  .release {
+    font-size: 0.85em;
+    margin-top: 0.25em;
+    padding: 0;
+    opacity: 0.666;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    @include filter-grayscale(100%);
+    @include transition();
+  }
+
+  img {
+    transform-origin: bottom;
+    display: block;
+    @include transition();
+  }
+}

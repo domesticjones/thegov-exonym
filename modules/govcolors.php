@@ -13,7 +13,8 @@
       .module-merch-category a:hover p,
       .contact-buttons a,
       #video-tabs a.is-active,
-      #video-tabs.accent {
+      #video-tabs.accent,
+      .video-control:hover .release {
         border-color: ' . $memberColor . ';
         color: ' . $memberColor . ';
       }
