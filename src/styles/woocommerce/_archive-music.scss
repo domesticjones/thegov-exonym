@@ -120,13 +120,15 @@
   .button {
     font-size: 0.85em;
     display: inline-block;
-    padding: 0.5em 1.5em;
+    padding: 0.75em 1.5em;
     font-weight: $font-light;
     border-radius: 0.25rem;
     margin-top: 1em;
     background-color: transparent;
     border: 1px solid $white;
     @include transition();
+    line-height: 1.5;
+    height: auto;
   }
 
   &:hover {

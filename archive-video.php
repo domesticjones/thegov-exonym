@@ -170,6 +170,7 @@
 
   echo '<aside class="page-sidebar">';
     $memberVid = gov_member('Videos')['long_video'];
+    $memberImg = gov_member('Videos')['long_video_image'];
     include('modules/govmembervid.php');
   echo '</aside>';
 

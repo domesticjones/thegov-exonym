@@ -1,4 +1,70 @@
-.home-section-content {
-  @include grid(center, center, column);
-  padding: 5rem 0;
+.home-show {
+  @include grid(center, center);
+  width: 100%;
+  border: none;
+
+  &:hover {
+    .home-show-image img {
+      transform: scale(0.85);
+    }
+
+    .home-show-bg {
+      opacity: 0.4;
+    }
+
+    .home-cta {
+      transform: scale(1.1);
+    }
+  }
+
+  address {
+    display: block;
+    padding: 0.25em 0 1em 0;
+    font-weight: $font-light;
+    @include fontItalic(false);
+
+    strong {
+      display: block;
+      @include fontBold(false);
+    }
+  }
+}
+
+.home-show-image {
+  width: 50%;
+  position: relative;
+
+  img {
+    display: block;
+    transform: scale(0.8);
+    @include transition();
+  }
+}
+
+.home-show-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center center;
+  @include filter-blur(1rem);
+  box-shadow: 1em 1em 1em $black;
+  opacity: 0.666;
+  transform: scale(0.9);
+  @include transition();
+}
+
+.home-show-content {
+  width: 50%;
+}
+
+.home-show-day {
+  padding: 0;
+  opacity: 0.666;
+}
+
+.home-show-name {
+  font-size: 1.5em;
+  @include fontBold();
+  padding: 0;
 }

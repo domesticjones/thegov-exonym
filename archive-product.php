@@ -71,6 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
   echo '<aside class="page-sidebar">';
     $memberVid = gov_member('Merch')['long_video'];
+    $memberImg = gov_member('Merch')['long_video_image'];
     include('modules/govmembervid.php');
   echo '</aside>';
 

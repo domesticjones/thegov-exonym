@@ -1,0 +1,49 @@
+.home-section-content {
+  @include grid(center, center, column);
+  padding: 5rem 3vw;
+}
+
+.home-heading {
+  @include grid(center, center);
+  border-bottom: 1px solid $white;
+  width: 100%;
+  padding-bottom: 0.5em;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  @include transition(all 1s ease);
+
+  strong,
+  span {
+    display: block;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    @include transition(all 1.5s ease);
+  }
+
+  strong {
+    color: $white;
+  }
+
+  span {
+    padding-right: 0.5em;
+    line-height: 1;
+    font-size: 0.5em;
+    text-align: right;
+
+    i {
+      display: table-caption;
+      @include fontItalic(false);
+    }
+  }
+}
+
+.home-cta {
+  display: inline-block;
+  padding: 1em 1.5em;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  margin-top: 1em;
+  background-color: transparent !important;
+  line-height: 1.5;
+  height: auto;
+}

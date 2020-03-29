@@ -3,7 +3,6 @@ window.jQuery = $;
 require('jquery-scrollify');
 
 // TODO: Pause videos on section change
-// TODO: Find way to async waterfall loading the videos
 
 export default {
   init() {
@@ -26,12 +25,15 @@ export default {
         const coloring = [
           '#header',
           '#header .social-info',
+          '.home-heading',
+          '.home-heading span',
+          '.home-cta',
         ];
         const colorSet = coloring.join(', ');
         if(curHex && curHex.length > 0) {
-          $(colorSet).css({'background-color': curHex, 'box-shadow': `${shadowDefault} ${curHex}`});
+          $(colorSet).css({'color': curHex, 'background-color': curHex, 'box-shadow': `${shadowDefault} ${curHex}`, 'border-color': curHex});
         } else {
-          $(colorSet).css({'background-color': colorDefault, 'box-shadow': `${shadowDefault} ${colorDefault}`});
+          $(colorSet).css({'color': colorDefault, 'background-color': colorDefault, 'box-shadow': `${shadowDefault} ${colorDefault}`, 'border-color': colorDefault});
         }
       },
     });

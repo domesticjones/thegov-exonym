@@ -26,9 +26,9 @@
 	}
 	add_action('wp_head', 'gov_color', 100);
 
-	function govHomeVideo($video) {
+	function govHomeVideo($video, $image) {
 		$output = '<aside class="home-bgvideo-wrap">';
-			$output .= '<video class="home-bgvideo" autoplay muted playsinline loop>';
+			$output .= '<video class="home-bgvideo" poster="' . $image . '" autoplay muted playsinline loop>';
 				$output .= '<source type="' . $video['mime_type'] . '" data-realvideo="' . $video['url'] . '">';
 			$output .= '</video>';
 		$output .= '</aside>';

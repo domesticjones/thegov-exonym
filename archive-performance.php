@@ -124,6 +124,7 @@
     echo '</article>';
     echo '<aside class="page-sidebar">';
       $memberVid = gov_member('Shows')['long_video'];
+      $memberImg = gov_member('Shows')['long_video_image'];
       include('modules/govmembervid.php');
     echo '</aside>';
   get_footer();

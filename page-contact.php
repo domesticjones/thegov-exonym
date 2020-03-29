@@ -97,6 +97,7 @@
     echo '</article>';
     echo '<aside class="page-sidebar">';
         $memberVid = gov_member('Contact')['long_video'];
+        $memberImg = gov_member('Contact')['long_video_image'];
         include('modules/govmembervid.php');
     echo '</aside>';
     get_footer();
